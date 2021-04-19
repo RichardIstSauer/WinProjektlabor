@@ -38,8 +38,6 @@ namespace WinProjektlabor
         {
             try
             {
-                do
-                {
                     driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
                     DriveInfo[] drives = DriveInfo.GetDrives();
                     var driveQuery = from d in drives
@@ -50,7 +48,6 @@ namespace WinProjektlabor
                     {
                         onDriveDetected(driveName, drive.VolumeLabel);
                     }
-                } while (driveName == null);
             }
             catch
             {
