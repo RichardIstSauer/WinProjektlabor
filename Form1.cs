@@ -22,28 +22,32 @@ namespace WinProjektlabor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //usbDetect = new UsbDetect();
-            //usbDetect.DriveDetected += UsbDetect_DriveDetected;
-            //usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            usbDetect = new UsbDetect();
+            usbDetect.DriveDetected += UsbDetect_DriveDetected;
+            usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+           
         }
 
-       
 
-        //private void UsbDetect_DriveDetected(object sender, EventArgs e)
-        //{
-        //    driveName = ((DriveInfoEventArgs)e).DriveName;
-        //    driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
-        //    //MessageBox.Show($"Drive {driveName} detected");
-        //    this.Invoke(new Action(() => lsbInfo.Items.Add(
-        //        $"Drive {driveName} '{driveLabel}' detected")));
-        //}
+        private void UsbDetect_DriveDetected(object sender, EventArgs e)
+        {
+            driveName = ((DriveInfoEventArgs)e).DriveName;
+            driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
+            txtbx_Passwort.Visible=true;
+            lbl_Passwort.Visible = true;
 
-        //private void UsbDetect_DriveRemoved(object sender, EventArgs e)
-        //{
-        //    driveName = ((DriveInfoEventArgs)e).DriveName;
-        //    //MessageBox.Show($"Drive {driveName} removed");
-        //    this.Invoke(new Action(() => lsbInfo.Items.Add(
-        //        $"Drive {this.driveName} removed")));
-        //}
+            MessageBox.Show($"Drive {driveName} detected");
+            this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
+            //lbl_Passwort.Visible = true; lsbInfo.Items.Add(
+            //    $"Drive {driveName} '{driveLabel}' detected")));
+        }
+
+        private void UsbDetect_DriveRemoved(object sender, EventArgs e)
+        {
+            driveName = ((DriveInfoEventArgs)e).DriveName;
+            //MessageBox.Show($"Drive {driveName} removed");
+            //this.Invoke(new Action(() => lsbInfo.Items.Add(
+            //    $"Drive {this.driveName} removed")));
+        }
     }
 }

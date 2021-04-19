@@ -31,8 +31,8 @@ namespace WinProjektlabor
         {
             this.lbl_Status = new System.Windows.Forms.Label();
             this.lbl_StatusNachricht = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lbl_Passwort = new System.Windows.Forms.Label();
+            this.txtbx_Passwort = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_Status
@@ -54,32 +54,32 @@ namespace WinProjektlabor
             this.lbl_StatusNachricht.TabIndex = 1;
             this.lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!";
             // 
-            // label1
+            // lbl_Passwort
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 252);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Passwort";
-            this.label1.UseCompatibleTextRendering = true;
-            this.label1.Visible = false;
+            this.lbl_Passwort.AutoSize = true;
+            this.lbl_Passwort.Location = new System.Drawing.Point(69, 252);
+            this.lbl_Passwort.Name = "lbl_Passwort";
+            this.lbl_Passwort.Size = new System.Drawing.Size(60, 20);
+            this.lbl_Passwort.TabIndex = 2;
+            this.lbl_Passwort.Text = "Passwort";
+            this.lbl_Passwort.UseCompatibleTextRendering = true;
+            this.lbl_Passwort.Visible = false;
             // 
-            // textBox1
+            // txtbx_Passwort
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 252);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Visible = false;
+            this.txtbx_Passwort.Location = new System.Drawing.Point(150, 252);
+            this.txtbx_Passwort.Name = "txtbx_Passwort";
+            this.txtbx_Passwort.Size = new System.Drawing.Size(162, 22);
+            this.txtbx_Passwort.TabIndex = 3;
+            this.txtbx_Passwort.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 457);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtbx_Passwort);
+            this.Controls.Add(this.lbl_Passwort);
             this.Controls.Add(this.lbl_StatusNachricht);
             this.Controls.Add(this.lbl_Status);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -95,8 +95,8 @@ namespace WinProjektlabor
 
         private System.Windows.Forms.Label lbl_Status;
         private System.Windows.Forms.Label lbl_StatusNachricht;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lbl_Passwort;
+        private System.Windows.Forms.TextBox txtbx_Passwort;
     }
 }
 
