@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace WinProjektlabor
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         UsbDetect usbDetect;
         Drive drive = new Drive();
         string driveName;
         string driveLabel;
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
@@ -39,6 +39,9 @@ namespace WinProjektlabor
 
             this.Invoke(new Action(() => lbl_Passwort.Visible = true));
             this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
+            this.Invoke(new Action(() => btn_Anmelden.Visible = true));
+            this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
+            this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
         }
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
@@ -47,6 +50,14 @@ namespace WinProjektlabor
             //MessageBox.Show($"Drive {driveName} removed");
             this.Invoke(new Action(() => lbl_Passwort.Visible = false));
             this.Invoke(new Action(() => txtbx_Passwort.Visible = false));
+            this.Invoke(new Action(() => btn_Anmelden.Visible = false));
+            this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!"));
+            this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
+        }
+
+        private void btn_Anmelden_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
