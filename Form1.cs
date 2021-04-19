@@ -27,6 +27,8 @@ namespace WinProjektlabor
             //usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
         }
 
+       
+
         //private void UsbDetect_DriveDetected(object sender, EventArgs e)
         //{
         //    driveName = ((DriveInfoEventArgs)e).DriveName;
