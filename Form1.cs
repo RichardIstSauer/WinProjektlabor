@@ -36,12 +36,17 @@ namespace WinProjektlabor
             driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
 
             string iButtonID = drive.Start(driveName);
+
+            this.Invoke(new Action(() => lbl_Passwort.Visible = true));
+            this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
         }
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
         {
             driveName = ((DriveInfoEventArgs)e).DriveName;
             //MessageBox.Show($"Drive {driveName} removed");
+            this.Invoke(new Action(() => lbl_Passwort.Visible = false));
+            this.Invoke(new Action(() => txtbx_Passwort.Visible = false));
         }
     }
 }

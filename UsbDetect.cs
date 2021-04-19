@@ -38,16 +38,16 @@ namespace WinProjektlabor
         {
             try
             {
-                    driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
-                    DriveInfo[] drives = DriveInfo.GetDrives();
-                    var driveQuery = from d in drives
+                driveName = e.NewEvent.Properties["DriveName"].Value.ToString();
+                DriveInfo[] drives = DriveInfo.GetDrives();
+                var driveQuery = from d in drives
                                      where d.Name.Contains(driveName)
                                      select d;
-                    DriveInfo drive = driveQuery.FirstOrDefault<DriveInfo>();
-                    if (drive != null)
-                    {
-                        onDriveDetected(driveName, drive.VolumeLabel);
-                    }
+                DriveInfo drive = driveQuery.FirstOrDefault<DriveInfo>();
+                if (drive != null)
+                {
+                    onDriveDetected(driveName, drive.VolumeLabel);
+                }
             }
             catch
             {
