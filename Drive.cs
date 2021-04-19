@@ -12,14 +12,17 @@ namespace WinProjektlabor
         public string Start(string drive)
         {
             string iButtonID = "";
-            using (StreamReader sr = new StreamReader(drive + "\\config.txt"))
-            {
-                while (!sr.EndOfStream)
+            if (File.Exists(drive + "\\config.txt")) {
+                using (StreamReader sr = new StreamReader(drive + "\\config.txt"))
                 {
-                    iButtonID = sr.ReadLine();
+                    while (!sr.EndOfStream)
+                    {
+                        iButtonID = sr.ReadLine();
+                    }
                 }
+                return iButtonID;
             }
-            return iButtonID;
+            return "0";
         }
     }
 }
