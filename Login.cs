@@ -14,8 +14,10 @@ namespace WinProjektlabor
     {
         UsbDetect usbDetect;
         Drive drive = new Drive();
+        Dbase db = new Dbase("projektlabor");
         string driveName;
         string driveLabel;
+        string iButtonID;
         public Login()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace WinProjektlabor
             driveName = ((DriveInfoEventArgs)e).DriveName;
             driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
 
-            string iButtonID = drive.Start(driveName);
+            iButtonID = drive.Start(driveName);
 
             this.Invoke(new Action(() => lbl_Passwort.Visible = true));
             this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
@@ -57,7 +59,14 @@ namespace WinProjektlabor
 
         private void btn_Anmelden_Click(object sender, EventArgs e)
         {
+            string EnteredPassword = txtbx_Passwort.Text;
 
+            bool result = db.QueryToBool($"SELECT * from user WHERE Passwort = '{EnteredPassword}' AND iButtonID = '{iButtonID}'");
+
+            if(result)
+            {
+                MessageBox.Show("Eingeloggt");
+            }
         }
     }
 }
