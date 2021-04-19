@@ -59,5 +59,19 @@ namespace WinProjektlabor
         {
 
         }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void btn_Admin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Admin admin = new Admin();
+            admin.Show();
+            
+
+        }
     }
 }

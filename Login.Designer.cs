@@ -34,6 +34,7 @@ namespace WinProjektlabor
             this.lbl_Passwort = new System.Windows.Forms.Label();
             this.txtbx_Passwort = new System.Windows.Forms.TextBox();
             this.btn_Anmelden = new System.Windows.Forms.Button();
+            this.btn_Admin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_Status
@@ -49,7 +50,7 @@ namespace WinProjektlabor
             // 
             this.lbl_StatusNachricht.AutoSize = true;
             this.lbl_StatusNachricht.ForeColor = System.Drawing.Color.Red;
-            this.lbl_StatusNachricht.Location = new System.Drawing.Point(173, 135);
+            this.lbl_StatusNachricht.Location = new System.Drawing.Point(146, 135);
             this.lbl_StatusNachricht.Name = "lbl_StatusNachricht";
             this.lbl_StatusNachricht.Size = new System.Drawing.Size(177, 17);
             this.lbl_StatusNachricht.TabIndex = 1;
@@ -86,17 +87,29 @@ namespace WinProjektlabor
             this.btn_Anmelden.Visible = false;
             this.btn_Anmelden.Click += new System.EventHandler(this.btn_Anmelden_Click);
             // 
+            // btn_Admin
+            // 
+            this.btn_Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Admin.Location = new System.Drawing.Point(430, 12);
+            this.btn_Admin.Name = "btn_Admin";
+            this.btn_Admin.Size = new System.Drawing.Size(27, 23);
+            this.btn_Admin.TabIndex = 5;
+            this.btn_Admin.Text = "!";
+            this.btn_Admin.UseVisualStyleBackColor = true;
+            this.btn_Admin.Click += new System.EventHandler(this.btn_Admin_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 457);
+            this.Controls.Add(this.btn_Admin);
             this.Controls.Add(this.btn_Anmelden);
             this.Controls.Add(this.txtbx_Passwort);
             this.Controls.Add(this.lbl_Passwort);
             this.Controls.Add(this.lbl_StatusNachricht);
             this.Controls.Add(this.lbl_Status);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -112,6 +125,7 @@ namespace WinProjektlabor
         private System.Windows.Forms.Label lbl_Passwort;
         private System.Windows.Forms.TextBox txtbx_Passwort;
         private System.Windows.Forms.Button btn_Anmelden;
+        private System.Windows.Forms.Button btn_Admin;
     }
 }
 
