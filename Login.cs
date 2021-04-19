@@ -39,11 +39,20 @@ namespace WinProjektlabor
 
             iButtonID = drive.Start(driveName);
 
-            this.Invoke(new Action(() => lbl_Passwort.Visible = true));
-            this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
-            this.Invoke(new Action(() => btn_Anmelden.Visible = true));
-            this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
-            this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
+            bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
+
+            if (iButtonID != "0" && result) {
+                this.Invoke(new Action(() => lbl_Passwort.Visible = true));
+                this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
+                this.Invoke(new Action(() => btn_Anmelden.Visible = true));
+                this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
+                this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
+            }
+            else
+            {
+                this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Kein valider USB-Stick gefunden."));
+                this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
+            }
         }
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
@@ -66,6 +75,10 @@ namespace WinProjektlabor
             if(result)
             {
                 MessageBox.Show("Eingeloggt");
+            }
+            else
+            {
+                MessageBox.Show("Fehler");
             }
         }
 
