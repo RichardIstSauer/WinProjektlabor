@@ -20,7 +20,7 @@ namespace WinProjektlabor
     class Dbase
     {
         private string serverName = "176.9.200.211";
-        private string databaseName = string.Empty;
+        private string databaseName = "projektlabor";
         private string uid = "root";
         private string passwd = "TSvdVO81D95InUO6";
         private string connString = string.Empty;
