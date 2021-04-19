@@ -76,7 +76,7 @@ namespace WinProjektlabor
             this.btn_AnmeldenAdmin.TabIndex = 5;
             this.btn_AnmeldenAdmin.Text = "Anmelden";
             this.btn_AnmeldenAdmin.UseVisualStyleBackColor = true;
-            this.btn_AnmeldenAdmin.Visible = false;
+            this.btn_AnmeldenAdmin.Click += new System.EventHandler(this.btn_AnmeldenAdmin_Click);
             // 
             // Admin
             // 
