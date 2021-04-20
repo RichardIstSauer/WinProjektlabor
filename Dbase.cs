@@ -171,7 +171,8 @@ namespace WinProjektlabor
 
                     connection.Close();
 
-                    return ByteToImage(imageBytes);
+                    outImage = ByteToImage(imageBytes);
+                    return resizeImage(outImage, new Size(150, 150));
                 }
 
                 return null;
@@ -184,6 +185,12 @@ namespace WinProjektlabor
             }
 
         }
+
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
 
         public static Bitmap ByteToImage(byte[] blob)
         {
