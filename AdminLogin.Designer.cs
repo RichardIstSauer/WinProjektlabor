@@ -110,7 +110,9 @@ namespace WinProjektlabor
             this.Controls.Add(this.lbl_UserAdmin);
             this.Controls.Add(this.txtbx_PasswortAdmin);
             this.Controls.Add(this.txtbx_UserAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "AdminLogin";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.AdminLogin_Load);

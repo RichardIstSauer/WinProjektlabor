@@ -161,6 +161,8 @@ namespace WinProjektlabor
             this.Controls.Add(this.lbl_Passwort);
             this.Controls.Add(this.lbl_StatusNachricht);
             this.Controls.Add(this.lbl_Status);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
