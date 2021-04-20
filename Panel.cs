@@ -69,6 +69,7 @@ namespace WinProjektlabor
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
             lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
+            lsbx_USB.DataSource = db.TableToListOne("ibutton", "iButtonID");
             dgv_Log.DataSource = db.TableToDataTable("log");
             
         }
