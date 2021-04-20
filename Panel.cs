@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinProjektlabor
 {
-    public partial class Admin : Form
+    public partial class Panel : Form
     {
-        public Admin()
+        public Panel()
         {
             InitializeComponent();
         }
