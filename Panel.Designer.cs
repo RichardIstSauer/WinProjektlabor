@@ -33,6 +33,11 @@ namespace WinProjektlabor
             this.tc_Verwaltung = new System.Windows.Forms.TabControl();
             this.tp_Member = new System.Windows.Forms.TabPage();
             this.tp_USB = new System.Windows.Forms.TabPage();
+            this.cmbx_TypUSB = new System.Windows.Forms.ComboBox();
+            this.btn_HinzufügenUSB = new System.Windows.Forms.Button();
+            this.lbl_TypUSB = new System.Windows.Forms.Label();
+            this.btn_LöschenUSB = new System.Windows.Forms.Button();
+            this.lsbx_USB = new System.Windows.Forms.ListBox();
             this.tp_Maschinen = new System.Windows.Forms.TabPage();
             this.btn_LöschenMaschinen = new System.Windows.Forms.Button();
             this.btn_HinzufügenMaschinen = new System.Windows.Forms.Button();
@@ -45,11 +50,6 @@ namespace WinProjektlabor
             this.pb_Maschine = new System.Windows.Forms.PictureBox();
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
-            this.btn_LöschenUSB = new System.Windows.Forms.Button();
-            this.lsbx_USB = new System.Windows.Forms.ListBox();
-            this.btn_HinzufügenUSB = new System.Windows.Forms.Button();
-            this.lbl_TypUSB = new System.Windows.Forms.Label();
-            this.cmbx_TypUSB = new System.Windows.Forms.ComboBox();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_USB.SuspendLayout();
@@ -111,6 +111,54 @@ namespace WinProjektlabor
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
             // 
+            // cmbx_TypUSB
+            // 
+            this.cmbx_TypUSB.FormattingEnabled = true;
+            this.cmbx_TypUSB.Items.AddRange(new object[] {
+            "USB Stick",
+            "iButton",
+            "FIDO 2"});
+            this.cmbx_TypUSB.Location = new System.Drawing.Point(231, 66);
+            this.cmbx_TypUSB.Name = "cmbx_TypUSB";
+            this.cmbx_TypUSB.Size = new System.Drawing.Size(121, 24);
+            this.cmbx_TypUSB.TabIndex = 10;
+            // 
+            // btn_HinzufügenUSB
+            // 
+            this.btn_HinzufügenUSB.Location = new System.Drawing.Point(231, 103);
+            this.btn_HinzufügenUSB.Name = "btn_HinzufügenUSB";
+            this.btn_HinzufügenUSB.Size = new System.Drawing.Size(121, 33);
+            this.btn_HinzufügenUSB.TabIndex = 9;
+            this.btn_HinzufügenUSB.Text = "Hinzufügen";
+            this.btn_HinzufügenUSB.UseVisualStyleBackColor = true;
+            // 
+            // lbl_TypUSB
+            // 
+            this.lbl_TypUSB.AutoSize = true;
+            this.lbl_TypUSB.Location = new System.Drawing.Point(275, 32);
+            this.lbl_TypUSB.Name = "lbl_TypUSB";
+            this.lbl_TypUSB.Size = new System.Drawing.Size(32, 16);
+            this.lbl_TypUSB.TabIndex = 7;
+            this.lbl_TypUSB.Text = "Typ";
+            // 
+            // btn_LöschenUSB
+            // 
+            this.btn_LöschenUSB.Location = new System.Drawing.Point(14, 352);
+            this.btn_LöschenUSB.Name = "btn_LöschenUSB";
+            this.btn_LöschenUSB.Size = new System.Drawing.Size(162, 33);
+            this.btn_LöschenUSB.TabIndex = 6;
+            this.btn_LöschenUSB.Text = "Löschen";
+            this.btn_LöschenUSB.UseVisualStyleBackColor = true;
+            // 
+            // lsbx_USB
+            // 
+            this.lsbx_USB.FormattingEnabled = true;
+            this.lsbx_USB.ItemHeight = 16;
+            this.lsbx_USB.Location = new System.Drawing.Point(14, 12);
+            this.lsbx_USB.Name = "lsbx_USB";
+            this.lsbx_USB.Size = new System.Drawing.Size(162, 324);
+            this.lsbx_USB.TabIndex = 5;
+            // 
             // tp_Maschinen
             // 
             this.tp_Maschinen.Controls.Add(this.btn_LöschenMaschinen);
@@ -157,7 +205,7 @@ namespace WinProjektlabor
             this.lbl_BezeichnungMaschinen.AutoSize = true;
             this.lbl_BezeichnungMaschinen.Location = new System.Drawing.Point(250, 31);
             this.lbl_BezeichnungMaschinen.Name = "lbl_BezeichnungMaschinen";
-            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(90, 17);
+            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(85, 16);
             this.lbl_BezeichnungMaschinen.TabIndex = 1;
             this.lbl_BezeichnungMaschinen.Text = "Bezeichnung";
             // 
@@ -187,7 +235,7 @@ namespace WinProjektlabor
             this.dgv_Log.Name = "dgv_Log";
             this.dgv_Log.RowHeadersWidth = 51;
             this.dgv_Log.RowTemplate.Height = 24;
-            this.dgv_Log.Size = new System.Drawing.Size(773, 444);
+            this.dgv_Log.Size = new System.Drawing.Size(977, 444);
             this.dgv_Log.TabIndex = 0;
             // 
             // tp_Maschine
@@ -219,7 +267,7 @@ namespace WinProjektlabor
             this.lbl_Maschine.Location = new System.Drawing.Point(11, 10);
             this.lbl_Maschine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Maschine.Name = "lbl_Maschine";
-            this.lbl_Maschine.Size = new System.Drawing.Size(97, 24);
+            this.lbl_Maschine.Size = new System.Drawing.Size(77, 18);
             this.lbl_Maschine.TabIndex = 0;
             this.lbl_Maschine.Text = "Maschine";
             // 
@@ -233,54 +281,6 @@ namespace WinProjektlabor
             this.tc_Panel.SelectedIndex = 0;
             this.tc_Panel.Size = new System.Drawing.Size(1067, 554);
             this.tc_Panel.TabIndex = 0;
-            // 
-            // btn_LöschenUSB
-            // 
-            this.btn_LöschenUSB.Location = new System.Drawing.Point(14, 352);
-            this.btn_LöschenUSB.Name = "btn_LöschenUSB";
-            this.btn_LöschenUSB.Size = new System.Drawing.Size(162, 33);
-            this.btn_LöschenUSB.TabIndex = 6;
-            this.btn_LöschenUSB.Text = "Löschen";
-            this.btn_LöschenUSB.UseVisualStyleBackColor = true;
-            // 
-            // lsbx_USB
-            // 
-            this.lsbx_USB.FormattingEnabled = true;
-            this.lsbx_USB.ItemHeight = 16;
-            this.lsbx_USB.Location = new System.Drawing.Point(14, 12);
-            this.lsbx_USB.Name = "lsbx_USB";
-            this.lsbx_USB.Size = new System.Drawing.Size(162, 324);
-            this.lsbx_USB.TabIndex = 5;
-            // 
-            // btn_HinzufügenUSB
-            // 
-            this.btn_HinzufügenUSB.Location = new System.Drawing.Point(231, 103);
-            this.btn_HinzufügenUSB.Name = "btn_HinzufügenUSB";
-            this.btn_HinzufügenUSB.Size = new System.Drawing.Size(121, 33);
-            this.btn_HinzufügenUSB.TabIndex = 9;
-            this.btn_HinzufügenUSB.Text = "Hinzufügen";
-            this.btn_HinzufügenUSB.UseVisualStyleBackColor = true;
-            // 
-            // lbl_TypUSB
-            // 
-            this.lbl_TypUSB.AutoSize = true;
-            this.lbl_TypUSB.Location = new System.Drawing.Point(275, 32);
-            this.lbl_TypUSB.Name = "lbl_TypUSB";
-            this.lbl_TypUSB.Size = new System.Drawing.Size(32, 17);
-            this.lbl_TypUSB.TabIndex = 7;
-            this.lbl_TypUSB.Text = "Typ";
-            // 
-            // cmbx_TypUSB
-            // 
-            this.cmbx_TypUSB.FormattingEnabled = true;
-            this.cmbx_TypUSB.Items.AddRange(new object[] {
-            "USB Stick",
-            "iButton",
-            "FIDO 2"});
-            this.cmbx_TypUSB.Location = new System.Drawing.Point(231, 66);
-            this.cmbx_TypUSB.Name = "cmbx_TypUSB";
-            this.cmbx_TypUSB.Size = new System.Drawing.Size(121, 24);
-            this.cmbx_TypUSB.TabIndex = 10;
             // 
             // Panel
             // 

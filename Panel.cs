@@ -70,7 +70,7 @@ namespace WinProjektlabor
         {
             lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
             lsbx_USB.DataSource = db.TableToListOne("ibutton", "iButtonID");
-            dgv_Log.DataSource = db.TableToDataTable("log");
+            dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
             
         }
 
