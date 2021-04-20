@@ -34,6 +34,7 @@ namespace WinProjektlabor
             this.lbl_UserAdmin = new System.Windows.Forms.Label();
             this.lbl_PasswortAdmin = new System.Windows.Forms.Label();
             this.btn_AnmeldenAdmin = new System.Windows.Forms.Button();
+            this.lbl_AnmeldenAdmin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtbx_UserAdmin
@@ -71,7 +72,7 @@ namespace WinProjektlabor
             // 
             // btn_AnmeldenAdmin
             // 
-            this.btn_AnmeldenAdmin.Location = new System.Drawing.Point(184, 290);
+            this.btn_AnmeldenAdmin.Location = new System.Drawing.Point(157, 334);
             this.btn_AnmeldenAdmin.Name = "btn_AnmeldenAdmin";
             this.btn_AnmeldenAdmin.Size = new System.Drawing.Size(82, 23);
             this.btn_AnmeldenAdmin.TabIndex = 5;
@@ -79,11 +80,21 @@ namespace WinProjektlabor
             this.btn_AnmeldenAdmin.UseVisualStyleBackColor = true;
             this.btn_AnmeldenAdmin.Click += new System.EventHandler(this.btn_AnmeldenAdmin_Click);
             // 
+            // lbl_AnmeldenAdmin
+            // 
+            this.lbl_AnmeldenAdmin.AutoSize = true;
+            this.lbl_AnmeldenAdmin.Location = new System.Drawing.Point(192, 51);
+            this.lbl_AnmeldenAdmin.Name = "lbl_AnmeldenAdmin";
+            this.lbl_AnmeldenAdmin.Size = new System.Drawing.Size(71, 17);
+            this.lbl_AnmeldenAdmin.TabIndex = 6;
+            this.lbl_AnmeldenAdmin.Text = "Anmelden";
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 457);
+            this.Controls.Add(this.lbl_AnmeldenAdmin);
             this.Controls.Add(this.btn_AnmeldenAdmin);
             this.Controls.Add(this.lbl_PasswortAdmin);
             this.Controls.Add(this.lbl_UserAdmin);
@@ -103,5 +114,6 @@ namespace WinProjektlabor
         private System.Windows.Forms.Label lbl_UserAdmin;
         private System.Windows.Forms.Label lbl_PasswortAdmin;
         private System.Windows.Forms.Button btn_AnmeldenAdmin;
+        private System.Windows.Forms.Label lbl_AnmeldenAdmin;
     }
 }

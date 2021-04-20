@@ -23,7 +23,8 @@ namespace WinProjektlabor
         {
             string EnteredUser = txtbx_UserAdmin.Text;
             string EnteredPassword = txtbx_PasswortAdmin.Text;
-            bool result = db.QueryToBool($"select * from nimda where User='{EnteredUser}' AND Passwort='{EnteredPassword}'");
+            string EnteredUserID = db.QueryToStringNew($"select AdminID from nimda where User='{EnteredUser}' AND Passwort='{EnteredPassword}'");
+            bool result = db.QueryToBool($"select * from nimda where AdminID='{EnteredUserID}' AND Passwort='{EnteredPassword}'");
             if (result)
             {
                 this.Hide();

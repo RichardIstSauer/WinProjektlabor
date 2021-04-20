@@ -434,6 +434,55 @@ namespace WinProjektlabor
             }
         }
 
+        public string QueryToStringNew(string _query)
+        {
+            try
+            {
+                string result = "";
+                connection.Open();
+                command = new MySqlCommand(_query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) 
+                {
+                    result = reader[0].ToString();
+                }
+                reader.Close();
+                connection.Close();
+                return result;
+            }
+            catch (MySqlException ex)
+            {
+                if (connection != null && connection.State == ConnectionState.Open)
+                    connection.Close();
+                MessageBox.Show(ex.Message + $"\n\n{_query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+
+        public List<string> GetOneColumnName(string query)
+        {
+            DataTable dtData = new DataTable();
+            List<string> columnCaptions = new List<string>();
+            try
+            {
+                connection.Open();
+                MySqlDataAdapter adp = new MySqlDataAdapter(query, connection);
+                adp.Fill(dtData);
+                connection.Close();
+                for (int i = 0; i < dtData.Columns.Count; i++)
+                {
+                    columnCaptions.Add(dtData.Columns[i].ColumnName);
+                }
+                return columnCaptions;
+            }
+            catch (MySqlException ex)
+            {
+                if (connection != null && connection.State == ConnectionState.Open)
+                    connection.Close();
+                MessageBox.Show(ex.Message + $"\n\n{query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<string>();
+            }
+        }
 
         #endregion
 

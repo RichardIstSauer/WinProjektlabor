@@ -28,6 +28,8 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            cmbx_LoginMaschine.DataSource = db.GetColumnName("maschine");
+
 
         }
 
@@ -99,6 +101,12 @@ namespace WinProjektlabor
             adminLogin.Show();
             
 
+        }
+
+        private void cmbx_LoginMaschine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Panel panel = new Panel();
+            panel.M_ID = "pl23dd";
         }
     }
 }
