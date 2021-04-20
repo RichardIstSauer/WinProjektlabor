@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WinProjektlabor
 {
-    public partial class Admin : Form
+    public partial class AdminLogin : Form
     {
         Dbase db = new Dbase("projektlabor");
 
-        public Admin()
+        public AdminLogin()
         {
             InitializeComponent();
         }
@@ -23,13 +23,18 @@ namespace WinProjektlabor
         {
             string EnteredUser = txtbx_UserAdmin.Text;
             string EnteredPassword = txtbx_PasswortAdmin.Text;
-            string EnteredUserID = db.QueryToString($"select AdminID from nimda where user='{EnteredUser}'");
-
-            bool result = db.QueryToBool($"SELECT * from nimda WHERE Passwort = '{EnteredPassword}' AND AdminID = '{EnteredUserID}'");
-
+            bool result = db.QueryToBool($"select * from nimda where User='{EnteredUser}' AND Passwort='{EnteredPassword}'");
             if (result)
             {
-                MessageBox.Show("Eingeloggt");
+                this.Hide();
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.Show();
+            }
+            else
+            {
+                txtbx_PasswortAdmin.Text = "";
+                txtbx_UserAdmin.Text = "";
+                MessageBox.Show("User oder Passwort falsch!");
             }
         }
     }

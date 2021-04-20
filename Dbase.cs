@@ -435,26 +435,6 @@ namespace WinProjektlabor
         }
 
 
-        public int QueryToInt(string _query)
-        {
-            try
-            {
-                connection.Open();
-                command = new MySqlCommand(_query, connection);
-                MySqlDataReader reader = command.ExecuteReader();
-                int result = reader;
-                reader.Close();
-                connection.Close();
-                return result;
-            }
-            catch (MySqlException ex)
-            {
-                if (connection != null && connection.State == ConnectionState.Open)
-                    connection.Close();
-                MessageBox.Show(ex.Message + $"\n\n{_query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 0;
-            }
-        }
         #endregion
 
         /// <summary>

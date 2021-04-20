@@ -1,7 +1,7 @@
 ﻿
 namespace WinProjektlabor
 {
-    partial class Admin
+    partial class AdminLogin
     {
         /// <summary>
         /// Required designer variable.
