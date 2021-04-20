@@ -12,9 +12,11 @@ namespace WinProjektlabor
 {
     public partial class Panel : Form
     {
+        UsbDetect usbDetect;
         public string M_ID;
         public string iButtonID;
         string Keymember;
+        string start = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
         Dbase db = new Dbase("projektlabor");
 
         public Panel()
@@ -24,6 +26,9 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
+            usbDetect = new UsbDetect();
+            usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            dgv_Log.DataSource = db.TableToDataTable("log");
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
 

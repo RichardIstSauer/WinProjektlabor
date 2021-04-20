@@ -232,6 +232,7 @@ namespace WinProjektlabor
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Panel";
             this.Text = "Panel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Panel_FormClosed);
             this.Load += new System.EventHandler(this.Panel_Load);
             this.tp_Verwaltung.ResumeLayout(false);
             this.tc_Verwaltung.ResumeLayout(false);
