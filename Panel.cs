@@ -32,24 +32,13 @@ namespace WinProjektlabor
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
             pb_Maschine.Image = db.loadImage(M_ID);
 
-            if(Keymember == "0")
+            if (Keymember == "0")
             {
                 tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
             }
         }
 
-        private void btn_HinzufügenMaschinen_Click(object sender, EventArgs e)
-        {
-            //if (txtbx_BezeichnungMaschinen.Text != "")
-            //{
-            //    db.ExecuteQuery($"Insert into maschine (Bezeichnung) values ('{txtbx_BezeichnungMaschinen.Text}')");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!");
-            //}
-            
-        }
+
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
         {
@@ -59,7 +48,8 @@ namespace WinProjektlabor
 
         private void Panel_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (M_ID != null) {
+            if (M_ID != null)
+            {
                 string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
                 db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
             }
@@ -68,18 +58,38 @@ namespace WinProjektlabor
 
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
-            //lsbx_USB.DataSource = db.TableToListOne("ibutton", "iButtonID");
             dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
             dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine");
             dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
-            
+
         }
 
         private void btn_LöschenMaschinen_Click(object sender, EventArgs e)
         {
-            //db.ExecuteQuery($"delete from maschine where Bezeichnung='{lsbx_Maschinen.SelectedItem}'");
-            //lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
+            
+                if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen ?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    int selectedIndex = dgv_Maschinen.SelectedRows[0].Index;
+                    string rowID = dgv_Maschinen[0, selectedIndex].Value.ToString();
+
+                    db.ExecuteQuery($"delete from maschine where MaschinenID='{rowID}'");
+                    dgv_Maschinen.Rows.RemoveAt(selectedIndex);
+                }
+
+        }
+
+        private void btn_LöschenUSB_Click(object sender, EventArgs e)
+        {
+          
+                if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen ?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    int selectedIndex = dgv_USB.SelectedRows[0].Index;
+                    string rowID = dgv_USB[0, selectedIndex].Value.ToString();
+
+                    db.ExecuteQuery($"delete from ibutton where iButtonID='{rowID}'");
+                    dgv_USB.Rows.RemoveAt(selectedIndex);
+                }
+
         }
     }
 }
