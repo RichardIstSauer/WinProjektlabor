@@ -22,7 +22,7 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
-            lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from Maschine WHERE MaschinenID='{M_ID}'");
+            lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
         }
     }
 }

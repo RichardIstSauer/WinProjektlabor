@@ -313,17 +313,10 @@ namespace WinProjektlabor
         /// <param name="_table">Name der auszugebenden Tabelle</param>
         /// <param name="_columns">Namen der auszugebenden Spalten als String-Array</param>
         /// <returns>Rückgabe der befüllten Liste</returns>
-        public List<string[]> TableToList(string _table, string[] _columns)
+        public List<string> TableToListOne(string _table, string _columns)
         {
-            List<string[]> listData = new List<string[]>();
-            string[] row;
-            string columns = "";
-            foreach (string column in _columns)
-            {
-                columns += column + ",";
-            }
-            columns = columns.Remove(columns.Length - 1);
-            string query = $"SELECT {columns} FROM {_table}";
+            List<string> listData = new List<string>();
+            string query = $"SELECT {_columns} FROM {_table}";
             try
             {
                 connection.Open();
@@ -331,10 +324,7 @@ namespace WinProjektlabor
                 MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    row = new string[reader.FieldCount];
-                    for (int i = 0; i < reader.FieldCount; i++)
-                        row[i] = reader[i].ToString();
-                    listData.Add(row);
+                    listData.Add(reader[0].ToString());
                 }
                 reader.Close();
                 connection.Close();
@@ -345,7 +335,7 @@ namespace WinProjektlabor
                 if (connection != null && connection.State == System.Data.ConnectionState.Open)
                     connection.Close();
                 MessageBox.Show(ex.Message + $"\n\n{query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<string[]>();
+                return new List<string>();
             }
         }
 
@@ -459,30 +449,7 @@ namespace WinProjektlabor
             }
         }
 
-        public List<string> GetOneColumnName(string query)
-        {
-            DataTable dtData = new DataTable();
-            List<string> columnCaptions = new List<string>();
-            try
-            {
-                connection.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter(query, connection);
-                adp.Fill(dtData);
-                connection.Close();
-                for (int i = 0; i < dtData.Columns.Count; i++)
-                {
-                    columnCaptions.Add(dtData.Columns[i].ColumnName);
-                }
-                return columnCaptions;
-            }
-            catch (MySqlException ex)
-            {
-                if (connection != null && connection.State == ConnectionState.Open)
-                    connection.Close();
-                MessageBox.Show(ex.Message + $"\n\n{query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<string>();
-            }
-        }
+       
 
         #endregion
 

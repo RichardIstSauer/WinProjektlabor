@@ -37,6 +37,7 @@ namespace WinProjektlabor
             this.btn_Admin = new System.Windows.Forms.Button();
             this.lbl_Anmelden = new System.Windows.Forms.Label();
             this.cmbx_LoginMaschine = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_Status
@@ -125,17 +126,27 @@ namespace WinProjektlabor
             // cmbx_LoginMaschine
             // 
             this.cmbx_LoginMaschine.FormattingEnabled = true;
-            this.cmbx_LoginMaschine.Location = new System.Drawing.Point(134, 99);
+            this.cmbx_LoginMaschine.Location = new System.Drawing.Point(115, 99);
             this.cmbx_LoginMaschine.Name = "cmbx_LoginMaschine";
-            this.cmbx_LoginMaschine.Size = new System.Drawing.Size(121, 24);
+            this.cmbx_LoginMaschine.Size = new System.Drawing.Size(140, 24);
             this.cmbx_LoginMaschine.TabIndex = 7;
             this.cmbx_LoginMaschine.SelectedIndexChanged += new System.EventHandler(this.cmbx_LoginMaschine_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(98, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Bitte Maschine auswählen!";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 457);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbx_LoginMaschine);
             this.Controls.Add(this.lbl_Anmelden);
             this.Controls.Add(this.btn_Admin);
@@ -144,7 +155,7 @@ namespace WinProjektlabor
             this.Controls.Add(this.lbl_Passwort);
             this.Controls.Add(this.lbl_StatusNachricht);
             this.Controls.Add(this.lbl_Status);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -163,6 +174,7 @@ namespace WinProjektlabor
         private System.Windows.Forms.Button btn_Admin;
         private System.Windows.Forms.Label lbl_Anmelden;
         private System.Windows.Forms.ComboBox cmbx_LoginMaschine;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -18,6 +18,7 @@ namespace WinProjektlabor
         string driveName;
         string driveLabel;
         string iButtonID;
+        string M_ID;
         public Login()
         {
             InitializeComponent();
@@ -28,9 +29,7 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
-            cmbx_LoginMaschine.DataSource = db.GetColumnName("maschine");
-
-
+            cmbx_LoginMaschine.DataSource = db.TableToListOne("maschine","Bezeichnung");
         }
 
 
@@ -81,9 +80,19 @@ namespace WinProjektlabor
 
             if(result)
             {
-                this.Hide();
-                Panel Panel = new Panel();
-                Panel.Show();
+                if (db.QueryToBool($"SELECT * from zuweisung WHERE MaschinenID = '{M_ID}' AND iButtonID = '{iButtonID}'"))
+                {
+                    this.Hide();
+                    Panel panel = new Panel();
+                    panel.M_ID = M_ID;
+                    panel.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Maschine ist ihnen nicht zugewiesen!");
+                }
+
+               
             }
             else
             {
@@ -105,8 +114,11 @@ namespace WinProjektlabor
 
         private void cmbx_LoginMaschine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Panel panel = new Panel();
-            panel.M_ID = "pl23dd";
+            M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
+            lbl_Status.Visible = true;
+            lbl_StatusNachricht.Visible = true;
+
+            
         }
     }
 }
