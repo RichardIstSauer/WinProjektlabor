@@ -33,27 +33,23 @@ namespace WinProjektlabor
             this.tc_Verwaltung = new System.Windows.Forms.TabControl();
             this.tp_Member = new System.Windows.Forms.TabPage();
             this.tp_USB = new System.Windows.Forms.TabPage();
-            this.cmbx_TypUSB = new System.Windows.Forms.ComboBox();
-            this.btn_HinzufügenUSB = new System.Windows.Forms.Button();
-            this.lbl_TypUSB = new System.Windows.Forms.Label();
-            this.btn_LöschenUSB = new System.Windows.Forms.Button();
-            this.lsbx_USB = new System.Windows.Forms.ListBox();
+            this.dgv_USB = new System.Windows.Forms.DataGridView();
             this.tp_Maschinen = new System.Windows.Forms.TabPage();
-            this.btn_LöschenMaschinen = new System.Windows.Forms.Button();
-            this.btn_HinzufügenMaschinen = new System.Windows.Forms.Button();
-            this.txtbx_BezeichnungMaschinen = new System.Windows.Forms.TextBox();
-            this.lbl_BezeichnungMaschinen = new System.Windows.Forms.Label();
-            this.lsbx_Maschinen = new System.Windows.Forms.ListBox();
+            this.dgv_Maschinen = new System.Windows.Forms.DataGridView();
             this.tp_Log = new System.Windows.Forms.TabPage();
             this.dgv_Log = new System.Windows.Forms.DataGridView();
             this.tp_Maschine = new System.Windows.Forms.TabPage();
             this.pb_Maschine = new System.Windows.Forms.PictureBox();
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
+            this.btn_LöschenMaschinen = new System.Windows.Forms.Button();
+            this.btn_LöschenUSB = new System.Windows.Forms.Button();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_USB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).BeginInit();
             this.tp_Maschinen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Maschinen)).BeginInit();
             this.tp_Log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).BeginInit();
             this.tp_Maschine.SuspendLayout();
@@ -98,11 +94,8 @@ namespace WinProjektlabor
             // 
             // tp_USB
             // 
-            this.tp_USB.Controls.Add(this.cmbx_TypUSB);
-            this.tp_USB.Controls.Add(this.btn_HinzufügenUSB);
-            this.tp_USB.Controls.Add(this.lbl_TypUSB);
             this.tp_USB.Controls.Add(this.btn_LöschenUSB);
-            this.tp_USB.Controls.Add(this.lsbx_USB);
+            this.tp_USB.Controls.Add(this.dgv_USB);
             this.tp_USB.Location = new System.Drawing.Point(4, 25);
             this.tp_USB.Name = "tp_USB";
             this.tp_USB.Padding = new System.Windows.Forms.Padding(3);
@@ -111,61 +104,20 @@ namespace WinProjektlabor
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
             // 
-            // cmbx_TypUSB
+            // dgv_USB
             // 
-            this.cmbx_TypUSB.FormattingEnabled = true;
-            this.cmbx_TypUSB.Items.AddRange(new object[] {
-            "USB Stick",
-            "iButton",
-            "FIDO 2"});
-            this.cmbx_TypUSB.Location = new System.Drawing.Point(231, 66);
-            this.cmbx_TypUSB.Name = "cmbx_TypUSB";
-            this.cmbx_TypUSB.Size = new System.Drawing.Size(121, 24);
-            this.cmbx_TypUSB.TabIndex = 10;
-            // 
-            // btn_HinzufügenUSB
-            // 
-            this.btn_HinzufügenUSB.Location = new System.Drawing.Point(231, 103);
-            this.btn_HinzufügenUSB.Name = "btn_HinzufügenUSB";
-            this.btn_HinzufügenUSB.Size = new System.Drawing.Size(121, 33);
-            this.btn_HinzufügenUSB.TabIndex = 9;
-            this.btn_HinzufügenUSB.Text = "Hinzufügen";
-            this.btn_HinzufügenUSB.UseVisualStyleBackColor = true;
-            // 
-            // lbl_TypUSB
-            // 
-            this.lbl_TypUSB.AutoSize = true;
-            this.lbl_TypUSB.Location = new System.Drawing.Point(275, 32);
-            this.lbl_TypUSB.Name = "lbl_TypUSB";
-            this.lbl_TypUSB.Size = new System.Drawing.Size(32, 16);
-            this.lbl_TypUSB.TabIndex = 7;
-            this.lbl_TypUSB.Text = "Typ";
-            // 
-            // btn_LöschenUSB
-            // 
-            this.btn_LöschenUSB.Location = new System.Drawing.Point(14, 352);
-            this.btn_LöschenUSB.Name = "btn_LöschenUSB";
-            this.btn_LöschenUSB.Size = new System.Drawing.Size(162, 33);
-            this.btn_LöschenUSB.TabIndex = 6;
-            this.btn_LöschenUSB.Text = "Löschen";
-            this.btn_LöschenUSB.UseVisualStyleBackColor = true;
-            // 
-            // lsbx_USB
-            // 
-            this.lsbx_USB.FormattingEnabled = true;
-            this.lsbx_USB.ItemHeight = 16;
-            this.lsbx_USB.Location = new System.Drawing.Point(14, 12);
-            this.lsbx_USB.Name = "lsbx_USB";
-            this.lsbx_USB.Size = new System.Drawing.Size(162, 324);
-            this.lsbx_USB.TabIndex = 5;
+            this.dgv_USB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_USB.Location = new System.Drawing.Point(39, 26);
+            this.dgv_USB.Name = "dgv_USB";
+            this.dgv_USB.RowHeadersWidth = 51;
+            this.dgv_USB.RowTemplate.Height = 24;
+            this.dgv_USB.Size = new System.Drawing.Size(364, 381);
+            this.dgv_USB.TabIndex = 2;
             // 
             // tp_Maschinen
             // 
             this.tp_Maschinen.Controls.Add(this.btn_LöschenMaschinen);
-            this.tp_Maschinen.Controls.Add(this.btn_HinzufügenMaschinen);
-            this.tp_Maschinen.Controls.Add(this.txtbx_BezeichnungMaschinen);
-            this.tp_Maschinen.Controls.Add(this.lbl_BezeichnungMaschinen);
-            this.tp_Maschinen.Controls.Add(this.lsbx_Maschinen);
+            this.tp_Maschinen.Controls.Add(this.dgv_Maschinen);
             this.tp_Maschinen.Location = new System.Drawing.Point(4, 25);
             this.tp_Maschinen.Name = "tp_Maschinen";
             this.tp_Maschinen.Size = new System.Drawing.Size(1055, 497);
@@ -173,50 +125,15 @@ namespace WinProjektlabor
             this.tp_Maschinen.Text = "Maschinen";
             this.tp_Maschinen.UseVisualStyleBackColor = true;
             // 
-            // btn_LöschenMaschinen
+            // dgv_Maschinen
             // 
-            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(14, 352);
-            this.btn_LöschenMaschinen.Name = "btn_LöschenMaschinen";
-            this.btn_LöschenMaschinen.Size = new System.Drawing.Size(162, 33);
-            this.btn_LöschenMaschinen.TabIndex = 4;
-            this.btn_LöschenMaschinen.Text = "Löschen";
-            this.btn_LöschenMaschinen.UseVisualStyleBackColor = true;
-            this.btn_LöschenMaschinen.Click += new System.EventHandler(this.btn_LöschenMaschinen_Click);
-            // 
-            // btn_HinzufügenMaschinen
-            // 
-            this.btn_HinzufügenMaschinen.Location = new System.Drawing.Point(231, 103);
-            this.btn_HinzufügenMaschinen.Name = "btn_HinzufügenMaschinen";
-            this.btn_HinzufügenMaschinen.Size = new System.Drawing.Size(131, 33);
-            this.btn_HinzufügenMaschinen.TabIndex = 3;
-            this.btn_HinzufügenMaschinen.Text = "Hinzufügen";
-            this.btn_HinzufügenMaschinen.UseVisualStyleBackColor = true;
-            this.btn_HinzufügenMaschinen.Click += new System.EventHandler(this.btn_HinzufügenMaschinen_Click);
-            // 
-            // txtbx_BezeichnungMaschinen
-            // 
-            this.txtbx_BezeichnungMaschinen.Location = new System.Drawing.Point(231, 66);
-            this.txtbx_BezeichnungMaschinen.Name = "txtbx_BezeichnungMaschinen";
-            this.txtbx_BezeichnungMaschinen.Size = new System.Drawing.Size(131, 22);
-            this.txtbx_BezeichnungMaschinen.TabIndex = 2;
-            // 
-            // lbl_BezeichnungMaschinen
-            // 
-            this.lbl_BezeichnungMaschinen.AutoSize = true;
-            this.lbl_BezeichnungMaschinen.Location = new System.Drawing.Point(250, 31);
-            this.lbl_BezeichnungMaschinen.Name = "lbl_BezeichnungMaschinen";
-            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(85, 16);
-            this.lbl_BezeichnungMaschinen.TabIndex = 1;
-            this.lbl_BezeichnungMaschinen.Text = "Bezeichnung";
-            // 
-            // lsbx_Maschinen
-            // 
-            this.lsbx_Maschinen.FormattingEnabled = true;
-            this.lsbx_Maschinen.ItemHeight = 16;
-            this.lsbx_Maschinen.Location = new System.Drawing.Point(14, 12);
-            this.lsbx_Maschinen.Name = "lsbx_Maschinen";
-            this.lsbx_Maschinen.Size = new System.Drawing.Size(162, 324);
-            this.lsbx_Maschinen.TabIndex = 0;
+            this.dgv_Maschinen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Maschinen.Location = new System.Drawing.Point(39, 26);
+            this.dgv_Maschinen.Name = "dgv_Maschinen";
+            this.dgv_Maschinen.RowHeadersWidth = 51;
+            this.dgv_Maschinen.RowTemplate.Height = 24;
+            this.dgv_Maschinen.Size = new System.Drawing.Size(364, 381);
+            this.dgv_Maschinen.TabIndex = 1;
             // 
             // tp_Log
             // 
@@ -235,7 +152,7 @@ namespace WinProjektlabor
             this.dgv_Log.Name = "dgv_Log";
             this.dgv_Log.RowHeadersWidth = 51;
             this.dgv_Log.RowTemplate.Height = 24;
-            this.dgv_Log.Size = new System.Drawing.Size(977, 444);
+            this.dgv_Log.Size = new System.Drawing.Size(932, 444);
             this.dgv_Log.TabIndex = 0;
             // 
             // tp_Maschine
@@ -248,7 +165,7 @@ namespace WinProjektlabor
             this.tp_Maschine.Padding = new System.Windows.Forms.Padding(4);
             this.tp_Maschine.Size = new System.Drawing.Size(1059, 525);
             this.tp_Maschine.TabIndex = 0;
-            this.tp_Maschine.Text = "Maschine";
+            this.tp_Maschine.Text = "Maschinen";
             this.tp_Maschine.UseVisualStyleBackColor = true;
             // 
             // pb_Maschine
@@ -282,6 +199,24 @@ namespace WinProjektlabor
             this.tc_Panel.Size = new System.Drawing.Size(1067, 554);
             this.tc_Panel.TabIndex = 0;
             // 
+            // btn_LöschenMaschinen
+            // 
+            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(39, 431);
+            this.btn_LöschenMaschinen.Name = "btn_LöschenMaschinen";
+            this.btn_LöschenMaschinen.Size = new System.Drawing.Size(364, 30);
+            this.btn_LöschenMaschinen.TabIndex = 2;
+            this.btn_LöschenMaschinen.Text = "Löschen";
+            this.btn_LöschenMaschinen.UseVisualStyleBackColor = true;
+            // 
+            // btn_LöschenUSB
+            // 
+            this.btn_LöschenUSB.Location = new System.Drawing.Point(39, 431);
+            this.btn_LöschenUSB.Name = "btn_LöschenUSB";
+            this.btn_LöschenUSB.Size = new System.Drawing.Size(364, 30);
+            this.btn_LöschenUSB.TabIndex = 3;
+            this.btn_LöschenUSB.Text = "Löschen";
+            this.btn_LöschenUSB.UseVisualStyleBackColor = true;
+            // 
             // Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,9 +231,9 @@ namespace WinProjektlabor
             this.tp_Verwaltung.ResumeLayout(false);
             this.tc_Verwaltung.ResumeLayout(false);
             this.tp_USB.ResumeLayout(false);
-            this.tp_USB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).EndInit();
             this.tp_Maschinen.ResumeLayout(false);
-            this.tp_Maschinen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Maschinen)).EndInit();
             this.tp_Log.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).EndInit();
             this.tp_Maschine.ResumeLayout(false);
@@ -322,15 +257,9 @@ namespace WinProjektlabor
         private System.Windows.Forms.Label lbl_Maschine;
         private System.Windows.Forms.TabControl tc_Panel;
         private System.Windows.Forms.DataGridView dgv_Log;
-        private System.Windows.Forms.Button btn_HinzufügenMaschinen;
-        private System.Windows.Forms.TextBox txtbx_BezeichnungMaschinen;
-        private System.Windows.Forms.Label lbl_BezeichnungMaschinen;
-        private System.Windows.Forms.ListBox lsbx_Maschinen;
+        private System.Windows.Forms.DataGridView dgv_USB;
+        private System.Windows.Forms.DataGridView dgv_Maschinen;
         private System.Windows.Forms.Button btn_LöschenUSB;
-        private System.Windows.Forms.ListBox lsbx_USB;
-        internal System.Windows.Forms.Button btn_LöschenMaschinen;
-        private System.Windows.Forms.ComboBox cmbx_TypUSB;
-        private System.Windows.Forms.Button btn_HinzufügenUSB;
-        private System.Windows.Forms.Label lbl_TypUSB;
+        private System.Windows.Forms.Button btn_LöschenMaschinen;
     }
 }

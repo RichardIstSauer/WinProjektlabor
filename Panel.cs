@@ -40,14 +40,14 @@ namespace WinProjektlabor
 
         private void btn_HinzufügenMaschinen_Click(object sender, EventArgs e)
         {
-            if (txtbx_BezeichnungMaschinen.Text != "")
-            {
-                db.ExecuteQuery($"Insert into maschine (Bezeichnung) values ('{txtbx_BezeichnungMaschinen.Text}')");
-            }
-            else
-            {
-                MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!");
-            }
+            //if (txtbx_BezeichnungMaschinen.Text != "")
+            //{
+            //    db.ExecuteQuery($"Insert into maschine (Bezeichnung) values ('{txtbx_BezeichnungMaschinen.Text}')");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!");
+            //}
             
         }
 
@@ -68,16 +68,18 @@ namespace WinProjektlabor
 
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
-            lsbx_USB.DataSource = db.TableToListOne("ibutton", "iButtonID");
+            //lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
+            //lsbx_USB.DataSource = db.TableToListOne("ibutton", "iButtonID");
+            dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
+            dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine");
             dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
             
         }
 
         private void btn_LöschenMaschinen_Click(object sender, EventArgs e)
         {
-            db.ExecuteQuery($"delete from maschine where Bezeichnung='{lsbx_Maschinen.SelectedItem}'");
-            lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
+            //db.ExecuteQuery($"delete from maschine where Bezeichnung='{lsbx_Maschinen.SelectedItem}'");
+            //lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
         }
     }
 }

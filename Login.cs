@@ -29,6 +29,7 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            cmbx_LoginMaschine.Select();
             cmbx_LoginMaschine.DataSource = db.TableToListOne("maschine","Bezeichnung");
         }
 
@@ -103,7 +104,7 @@ namespace WinProjektlabor
         }
 
         
-
+        //AdminLogin Panel
         private void btn_Admin_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -113,6 +114,7 @@ namespace WinProjektlabor
 
         }
 
+        //Erscheinen des USB Statuses
         private void cmbx_LoginMaschine_SelectedIndexChanged(object sender, EventArgs e)
         {
             M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
@@ -120,7 +122,7 @@ namespace WinProjektlabor
             lbl_StatusNachricht.Visible = true;
         }
 
- 
+        //Mit Enter Anmelden
         private void txtbx_Passwort_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)

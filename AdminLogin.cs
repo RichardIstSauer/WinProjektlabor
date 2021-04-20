@@ -21,10 +21,7 @@ namespace WinProjektlabor
 
         private void btn_AnmeldenAdmin_Click(object sender, EventArgs e)
         {
-            string EnteredUser = txtbx_UserAdmin.Text;
-            string EnteredPassword = txtbx_PasswortAdmin.Text;
-            string EnteredUserID = db.QueryToStringNew($"select AdminID from nimda where User='{EnteredUser}' AND Passwort='{EnteredPassword}'");
-            bool result = db.QueryToBool($"select * from nimda where AdminID='{EnteredUserID}' AND Passwort='{EnteredPassword}'");
+            bool result = db.QueryToBool($"select * from admin where User='{txtbx_UserAdmin.Text}' AND Passwort='{txtbx_PasswortAdmin.Text}'");
             if (result)
             {
                 this.Hide();
@@ -39,6 +36,7 @@ namespace WinProjektlabor
             }
         }
 
+        //Mit Enter Anmelden
         private void txtbx_PasswortAdmin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
