@@ -434,6 +434,31 @@ namespace WinProjektlabor
             }
         }
 
+        public string QueryToStringNew(string _query)
+        {
+            try
+            {
+                string result = "";
+                connection.Open();
+                command = new MySqlCommand(_query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) 
+                {
+                    result = reader[0].ToString();
+                }
+                reader.Close();
+                connection.Close();
+                return result;
+            }
+            catch (MySqlException ex)
+            {
+                if (connection != null && connection.State == ConnectionState.Open)
+                    connection.Close();
+                MessageBox.Show(ex.Message + $"\n\n{_query}", "Datenbank Query-Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return string.Empty;
+            }
+        }
+
 
         #endregion
 
