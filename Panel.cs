@@ -16,7 +16,7 @@ namespace WinProjektlabor
         public string M_ID;
         public string iButtonID;
         string Keymember;
-        string start = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+        string start = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
         Dbase db = new Dbase("projektlabor");
 
         public Panel()
@@ -51,7 +51,7 @@ namespace WinProjektlabor
         {
             if (M_ID != null)
             {
-                string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+                string ende = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
                 db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
             }
             Application.Exit();

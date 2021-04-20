@@ -44,7 +44,6 @@ namespace WinProjektlabor
             this.pb_Maschine = new System.Windows.Forms.PictureBox();
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_USB.SuspendLayout();
@@ -223,22 +222,11 @@ namespace WinProjektlabor
             // 
             this.tc_Panel.Controls.Add(this.tp_Maschine);
             this.tc_Panel.Controls.Add(this.tp_Verwaltung);
-            this.tc_Panel.Controls.Add(this.tabPage1);
             this.tc_Panel.Location = new System.Drawing.Point(0, 0);
             this.tc_Panel.Name = "tc_Panel";
             this.tc_Panel.SelectedIndex = 0;
             this.tc_Panel.Size = new System.Drawing.Size(800, 450);
             this.tc_Panel.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // Panel
             // 
@@ -283,6 +271,5 @@ namespace WinProjektlabor
         private System.Windows.Forms.DataGridView dgv_Maschinen;
         private System.Windows.Forms.Button btn_LöschenUSB;
         private System.Windows.Forms.Button btn_LöschenMaschinen;
-        private System.Windows.Forms.TabPage tabPage1;
     }
 }
