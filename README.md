@@ -1,5 +1,6 @@
-# WinProjektlabor ![image](https://user-images.githubusercontent.com/42067245/115446637-cea80f00-a217-11eb-917e-46a8d45e31b3.png)
+# WinProjektlabor 
 
+![image](https://user-images.githubusercontent.com/42067245/115446637-cea80f00-a217-11eb-917e-46a8d45e31b3.png)
 Das Projektlabor am Berufskolleg Rheine ist eine
 offene Lernumgebung für Schülerinnen und
 Schüler. Hier haben „Maker“ einen Ort
