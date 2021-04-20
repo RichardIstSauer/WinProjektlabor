@@ -28,7 +28,6 @@ namespace WinProjektlabor
         {
             usbDetect = new UsbDetect();
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
-            dgv_Log.DataSource = db.TableToDataTable("log");
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
             pb_Maschine.Image = db.loadImage(M_ID);
@@ -39,17 +38,32 @@ namespace WinProjektlabor
             }
         }
 
-        private void UsbDetect_DriveRemoved(object sender, EventArgs e)
+        private void btn_HinzufügenMaschinen_Click(object sender, EventArgs e)
         {
-            string driveName = ((DriveInfoEventArgs)e).DriveName;
-            Application.Exit();
+            if (txtbx_BezeichnungMaschinen.Text != "")
+            {
+                db.ExecuteQuery($"Insert into maschine (Bezeichnung) values ('{txtbx_BezeichnungMaschinen.Text}')");
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!");
+            }
+            
         }
 
-        private void Panel_FormClosed(object sender, FormClosedEventArgs e)
+       
+
+        private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
-            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
-            Application.Exit();
+            lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
+            dgv_Log.DataSource = db.TableToDataTable("log");
+            
+        }
+
+        private void btn_LöschenMaschinen_Click(object sender, EventArgs e)
+        {
+            db.ExecuteQuery($"delete from maschine where Bezeichnung='{lsbx_Maschinen.SelectedItem}'");
+            lsbx_Maschinen.DataSource = db.TableToListOne("maschine", "Bezeichnung");
         }
     }
 }
