@@ -13,6 +13,8 @@ namespace WinProjektlabor
     public partial class Panel : Form
     {
         public string M_ID;
+        public string iButtonID;
+        string Keymember;
         Dbase db = new Dbase("projektlabor");
 
         public Panel()
@@ -22,7 +24,13 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
+            Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
+
+            if(Keymember == "0")
+            {
+                tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
+            }
         }
     }
 }

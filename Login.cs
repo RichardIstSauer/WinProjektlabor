@@ -85,6 +85,7 @@ namespace WinProjektlabor
                     this.Hide();
                     Panel panel = new Panel();
                     panel.M_ID = M_ID;
+                    panel.iButtonID = iButtonID;
                     panel.Show();
                 }
                 else
