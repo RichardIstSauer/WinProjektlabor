@@ -12,7 +12,7 @@ namespace WinProjektlabor
 {
     public partial class Panel : Form
     {
-        Drive drive;
+        Drive drive = new Drive();
         string driveName;
         string driveLabel;
         UsbDetect usbDetect;
@@ -30,7 +30,7 @@ namespace WinProjektlabor
         private void Panel_Load(object sender, EventArgs e)
         {
             usbDetect = new UsbDetect();
-            //usbDetect.DriveDetected += UsbDetect_DriveDetected;
+            usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
@@ -43,32 +43,29 @@ namespace WinProjektlabor
             }
         }
 
-        //private void UsbDetect_DriveDetected(object sender, EventArgs e)
-        //{
-        //    driveName = ((DriveInfoEventArgs)e).DriveName;
-        //    driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
+        private void UsbDetect_DriveDetected(object sender, EventArgs e)
+        {
+            driveName = ((DriveInfoEventArgs)e).DriveName;
+            driveLabel = ((DriveInfoEventArgs)e).DriveLabel;
 
-        //    iButtonID = drive.Start(driveName);
+            iButtonID = drive.Start(driveName);
 
-        //    // Ausgelesene iButtonID abgleichen ob diese existiert.
-        //    bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
+            // Ausgelesene iButtonID abgleichen ob diese existiert.
+            bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
 
-        //    // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
-        //    if (iButtonID != "0" && result)
-        //    {
-        //        this.Invoke(new Action(() => lbl_Passwort.Visible = true));
-        //        this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
-        //        this.Invoke(new Action(() => btn_Anmelden.Visible = true));
-        //        this.Invoke(new Action(() => lbl_Anmelden.Visible = true));
-        //        this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
-        //        this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
-        //    }
-        //    else
-        //    {
-        //        this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Kein valider USB-Stick gefunden."));
-        //        this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
-        //    }
-        //}
+            // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
+            if (iButtonID != "0" && result)
+            {
+                this.Invoke(new Action(() => pn_YesUSB.Visible = true));
+                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
+                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
+            }
+            else
+            {
+                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Kein valider USB-Stick gefunden."));
+                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
+            }
+        }
 
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)

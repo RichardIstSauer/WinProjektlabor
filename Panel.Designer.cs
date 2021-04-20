@@ -33,7 +33,7 @@ namespace WinProjektlabor
             this.tc_Verwaltung = new System.Windows.Forms.TabControl();
             this.tp_Member = new System.Windows.Forms.TabPage();
             this.tp_USB = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pn_YesUSB = new System.Windows.Forms.Panel();
             this.lbl_GehörtUSB = new System.Windows.Forms.Label();
             this.lbl_UserUSB = new System.Windows.Forms.Label();
             this.btn_LoeschenUSB = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@ namespace WinProjektlabor
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_USB.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pn_YesUSB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).BeginInit();
             this.tp_Maschinen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Maschinen)).BeginInit();
@@ -102,7 +102,7 @@ namespace WinProjektlabor
             // 
             // tp_USB
             // 
-            this.tp_USB.Controls.Add(this.panel1);
+            this.tp_USB.Controls.Add(this.pn_YesUSB);
             this.tp_USB.Controls.Add(this.lbl_StatusNachrichtUSB);
             this.tp_USB.Controls.Add(this.lbl_StatusUSB);
             this.tp_USB.Controls.Add(this.btn_LöschenUSB);
@@ -116,16 +116,16 @@ namespace WinProjektlabor
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pn_YesUSB
             // 
-            this.panel1.Controls.Add(this.lbl_GehörtUSB);
-            this.panel1.Controls.Add(this.lbl_UserUSB);
-            this.panel1.Controls.Add(this.btn_LoeschenUSB);
-            this.panel1.Location = new System.Drawing.Point(338, 72);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 8;
-            this.panel1.Visible = false;
+            this.pn_YesUSB.Controls.Add(this.lbl_GehörtUSB);
+            this.pn_YesUSB.Controls.Add(this.lbl_UserUSB);
+            this.pn_YesUSB.Controls.Add(this.btn_LoeschenUSB);
+            this.pn_YesUSB.Location = new System.Drawing.Point(338, 72);
+            this.pn_YesUSB.Name = "pn_YesUSB";
+            this.pn_YesUSB.Size = new System.Drawing.Size(200, 100);
+            this.pn_YesUSB.TabIndex = 8;
+            this.pn_YesUSB.Visible = false;
             // 
             // lbl_GehörtUSB
             // 
@@ -319,8 +319,8 @@ namespace WinProjektlabor
             this.tc_Verwaltung.ResumeLayout(false);
             this.tp_USB.ResumeLayout(false);
             this.tp_USB.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pn_YesUSB.ResumeLayout(false);
+            this.pn_YesUSB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).EndInit();
             this.tp_Maschinen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Maschinen)).EndInit();
@@ -353,7 +353,7 @@ namespace WinProjektlabor
         private System.Windows.Forms.Button btn_LöschenMaschinen;
         private System.Windows.Forms.Label lbl_StatusNachrichtUSB;
         private System.Windows.Forms.Label lbl_StatusUSB;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pn_YesUSB;
         private System.Windows.Forms.Label lbl_GehörtUSB;
         private System.Windows.Forms.Label lbl_UserUSB;
         private System.Windows.Forms.Button btn_LoeschenUSB;
