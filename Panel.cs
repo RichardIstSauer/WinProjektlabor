@@ -31,6 +31,7 @@ namespace WinProjektlabor
             dgv_Log.DataSource = db.TableToDataTable("log");
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
+            pb_Maschine.Image = db.loadImage(M_ID);
 
             if(Keymember == "0")
             {

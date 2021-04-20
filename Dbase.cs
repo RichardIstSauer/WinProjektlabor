@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,6 +143,57 @@ namespace WinProjektlabor
                     connection.Close();
                 MessageBox.Show(ex.Message, "Datenbank Verbindungsfehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public Image loadImage(string M_ID)
+        {
+
+            MySqlDataReader myData;
+
+            string SQL;
+            MemoryStream ms;
+            Image outImage;
+            byte[] imageBytes;
+
+            SQL = $"SELECT Bild FROM maschine WHERE MaschineNID ='{M_ID}'";
+
+            try
+            {
+                connection.Open();
+                command = new MySqlCommand(SQL, connection);
+
+                myData = command.ExecuteReader();
+
+                while (myData.Read())
+                {
+                    imageBytes = (byte[])myData["Bild"];
+
+
+                    connection.Close();
+
+                    return ByteToImage(imageBytes);
+                }
+
+                return null;
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+
+        }
+
+        public static Bitmap ByteToImage(byte[] blob)
+        {
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = blob;
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+
         }
 
         #region ToDataTable
