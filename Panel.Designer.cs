@@ -97,6 +97,7 @@ namespace WinProjektlabor
             this.Controls.Add(this.tc_Panel);
             this.Name = "Panel";
             this.Text = "Panel";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Panel_FormClosed);
             this.Load += new System.EventHandler(this.Panel_Load);
             this.tc_Panel.ResumeLayout(false);
             this.tp_Maschine.ResumeLayout(false);

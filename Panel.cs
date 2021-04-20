@@ -12,9 +12,11 @@ namespace WinProjektlabor
 {
     public partial class Panel : Form
     {
+        UsbDetect usbDetect;
         public string M_ID;
         public string iButtonID;
         string Keymember;
+        string start = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
         Dbase db = new Dbase("projektlabor");
 
         public Panel()
@@ -24,6 +26,8 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
+            usbDetect = new UsbDetect();
+            usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
 
@@ -31,6 +35,21 @@ namespace WinProjektlabor
             {
                 tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
             }
+        }
+
+        private void UsbDetect_DriveRemoved(object sender, EventArgs e)
+        {
+            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+            string driveName = ((DriveInfoEventArgs)e).DriveName;
+            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
+            Application.Exit();
+        }
+
+        private void Panel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
+            Application.Exit();
         }
     }
 }
