@@ -34,7 +34,7 @@ namespace WinProjektlabor
 
             if (Keymember == "0")
             {
-               tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
+                tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
 
             }
         }
@@ -67,30 +67,40 @@ namespace WinProjektlabor
 
         private void btn_LöschenMaschinen_Click(object sender, EventArgs e)
         {
-            
-                if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    int selectedIndex = dgv_Maschinen.SelectedRows[0].Index;
-                    string rowID = dgv_Maschinen[0, selectedIndex].Value.ToString();
 
-                    db.ExecuteQuery($"delete from maschine where MaschinenID='{rowID}'");
+            if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                int selectedIndex = dgv_Maschinen.SelectedRows[0].Index;
+                string rowID = dgv_Maschinen[0, selectedIndex].Value.ToString();
+
+                db.ExecuteQuery($"delete from maschine where MaschinenID='{rowID}'");
+                if (!db.QueryToBool($"select * from maschine where MaschinenID='{rowID}'"))
+                {
                     dgv_Maschinen.Rows.RemoveAt(selectedIndex);
+
                 }
+            }
 
         }
 
         private void btn_LöschenUSB_Click(object sender, EventArgs e)
         {
-          
-                if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    int selectedIndex = dgv_USB.SelectedRows[0].Index;
-                    string rowID = dgv_USB[0, selectedIndex].Value.ToString();
 
-                    db.ExecuteQuery($"delete from ibutton where iButtonID='{rowID}'");
+            if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                int selectedIndex = dgv_USB.SelectedRows[0].Index;
+                string rowID = dgv_USB[0, selectedIndex].Value.ToString();
+
+                db.ExecuteQuery($"delete from ibutton where iButtonID='{rowID}'");
+                if (!db.QueryToBool($"select * from ibutton where iButtonID='{rowID}'"))
+                {
                     dgv_USB.Rows.RemoveAt(selectedIndex);
+
                 }
+                
+            }
 
         }
     }
 }
+
