@@ -47,6 +47,7 @@ namespace WinProjektlabor
             // 
             this.txtbx_PasswortAdmin.Location = new System.Drawing.Point(184, 217);
             this.txtbx_PasswortAdmin.Name = "txtbx_PasswortAdmin";
+            this.txtbx_PasswortAdmin.PasswordChar = '*';
             this.txtbx_PasswortAdmin.Size = new System.Drawing.Size(100, 22);
             this.txtbx_PasswortAdmin.TabIndex = 1;
             // 
@@ -78,7 +79,7 @@ namespace WinProjektlabor
             this.btn_AnmeldenAdmin.UseVisualStyleBackColor = true;
             this.btn_AnmeldenAdmin.Click += new System.EventHandler(this.btn_AnmeldenAdmin_Click);
             // 
-            // Admin
+            // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +89,7 @@ namespace WinProjektlabor
             this.Controls.Add(this.lbl_UserAdmin);
             this.Controls.Add(this.txtbx_PasswortAdmin);
             this.Controls.Add(this.txtbx_UserAdmin);
-            this.Name = "Admin";
+            this.Name = "AdminLogin";
             this.Text = "Admin";
             this.ResumeLayout(false);
             this.PerformLayout();

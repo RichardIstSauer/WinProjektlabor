@@ -27,8 +27,8 @@ namespace WinProjektlabor
             if (result)
             {
                 this.Hide();
-                AdminPanel adminPanel = new AdminPanel();
-                adminPanel.Show();
+                Panel Panel = new Panel();
+                Panel.Show();
             }
             else
             {

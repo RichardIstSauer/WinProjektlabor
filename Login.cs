@@ -79,11 +79,14 @@ namespace WinProjektlabor
 
             if(result)
             {
-                MessageBox.Show("Eingeloggt");
+                this.Hide();
+                Panel Panel = new Panel();
+                Panel.Show();
             }
             else
             {
-                MessageBox.Show("Fehler");
+                txtbx_Passwort.Text = "";
+                MessageBox.Show("Passwort falsch!");
             }
         }
 
