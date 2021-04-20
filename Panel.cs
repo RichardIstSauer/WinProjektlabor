@@ -12,9 +12,17 @@ namespace WinProjektlabor
 {
     public partial class Panel : Form
     {
+        public string M_ID;
+        Dbase db = new Dbase("projektlabor");
+
         public Panel()
         {
             InitializeComponent();
+        }
+
+        private void Panel_Load(object sender, EventArgs e)
+        {
+            lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from Maschine WHERE MaschinenID='{M_ID}'");
         }
     }
 }

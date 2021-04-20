@@ -11,7 +11,7 @@ namespace WinProjektlabor
     {
         public string Start(string drive)
         {
-            string iButtonID = "";
+            string iButtonID = string.Empty;
             // Abfrage ob die config-File auf dem USB existiert
             if (File.Exists(drive + "\\config.txt")) {
                 // Wenn ja config auslesen
