@@ -39,18 +39,19 @@ namespace WinProjektlabor
             // 
             // txtbx_UserAdmin
             // 
-            this.txtbx_UserAdmin.Location = new System.Drawing.Point(91, 146);
+            this.txtbx_UserAdmin.Location = new System.Drawing.Point(114, 146);
             this.txtbx_UserAdmin.Name = "txtbx_UserAdmin";
             this.txtbx_UserAdmin.Size = new System.Drawing.Size(165, 22);
             this.txtbx_UserAdmin.TabIndex = 0;
             // 
             // txtbx_PasswortAdmin
             // 
-            this.txtbx_PasswortAdmin.Location = new System.Drawing.Point(91, 217);
+            this.txtbx_PasswortAdmin.Location = new System.Drawing.Point(114, 217);
             this.txtbx_PasswortAdmin.Name = "txtbx_PasswortAdmin";
             this.txtbx_PasswortAdmin.PasswordChar = '*';
             this.txtbx_PasswortAdmin.Size = new System.Drawing.Size(165, 22);
             this.txtbx_PasswortAdmin.TabIndex = 1;
+            this.txtbx_PasswortAdmin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbx_PasswortAdmin_KeyDown);
             // 
             // lbl_UserAdmin
             // 
@@ -74,7 +75,7 @@ namespace WinProjektlabor
             // 
             // btn_AnmeldenAdmin
             // 
-            this.btn_AnmeldenAdmin.Location = new System.Drawing.Point(91, 256);
+            this.btn_AnmeldenAdmin.Location = new System.Drawing.Point(114, 254);
             this.btn_AnmeldenAdmin.Name = "btn_AnmeldenAdmin";
             this.btn_AnmeldenAdmin.Size = new System.Drawing.Size(165, 23);
             this.btn_AnmeldenAdmin.TabIndex = 5;
@@ -86,7 +87,7 @@ namespace WinProjektlabor
             // 
             this.lbl_AnmeldenAdmin.AutoSize = true;
             this.lbl_AnmeldenAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_AnmeldenAdmin.Location = new System.Drawing.Point(122, 57);
+            this.lbl_AnmeldenAdmin.Location = new System.Drawing.Point(145, 65);
             this.lbl_AnmeldenAdmin.Name = "lbl_AnmeldenAdmin";
             this.lbl_AnmeldenAdmin.Size = new System.Drawing.Size(103, 24);
             this.lbl_AnmeldenAdmin.TabIndex = 6;
@@ -96,7 +97,7 @@ namespace WinProjektlabor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 316);
+            this.ClientSize = new System.Drawing.Size(376, 316);
             this.Controls.Add(this.lbl_AnmeldenAdmin);
             this.Controls.Add(this.btn_AnmeldenAdmin);
             this.Controls.Add(this.lbl_PasswortAdmin);

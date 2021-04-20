@@ -34,6 +34,11 @@ namespace WinProjektlabor
             this.tp_Member = new System.Windows.Forms.TabPage();
             this.tp_USB = new System.Windows.Forms.TabPage();
             this.tp_Maschinen = new System.Windows.Forms.TabPage();
+            this.btn_LöschenMaschinen = new System.Windows.Forms.Button();
+            this.btn_HinzufügenMaschinen = new System.Windows.Forms.Button();
+            this.txtbx_BezeichnungMaschinen = new System.Windows.Forms.TextBox();
+            this.lbl_BezeichnungMaschinen = new System.Windows.Forms.Label();
+            this.lsbx_Maschinen = new System.Windows.Forms.ListBox();
             this.tp_Log = new System.Windows.Forms.TabPage();
             this.dgv_Log = new System.Windows.Forms.DataGridView();
             this.tp_Maschine = new System.Windows.Forms.TabPage();
@@ -42,6 +47,7 @@ namespace WinProjektlabor
             this.tc_Panel = new System.Windows.Forms.TabControl();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
+            this.tp_Maschinen.SuspendLayout();
             this.tp_Log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).BeginInit();
             this.tp_Maschine.SuspendLayout();
@@ -72,6 +78,7 @@ namespace WinProjektlabor
             this.tc_Verwaltung.SelectedIndex = 0;
             this.tc_Verwaltung.Size = new System.Drawing.Size(1063, 526);
             this.tc_Verwaltung.TabIndex = 0;
+            this.tc_Verwaltung.SelectedIndexChanged += new System.EventHandler(this.tc_Verwaltung_SelectedIndexChanged);
             // 
             // tp_Member
             // 
@@ -95,12 +102,62 @@ namespace WinProjektlabor
             // 
             // tp_Maschinen
             // 
+            this.tp_Maschinen.Controls.Add(this.btn_LöschenMaschinen);
+            this.tp_Maschinen.Controls.Add(this.btn_HinzufügenMaschinen);
+            this.tp_Maschinen.Controls.Add(this.txtbx_BezeichnungMaschinen);
+            this.tp_Maschinen.Controls.Add(this.lbl_BezeichnungMaschinen);
+            this.tp_Maschinen.Controls.Add(this.lsbx_Maschinen);
             this.tp_Maschinen.Location = new System.Drawing.Point(4, 25);
             this.tp_Maschinen.Name = "tp_Maschinen";
             this.tp_Maschinen.Size = new System.Drawing.Size(1055, 497);
             this.tp_Maschinen.TabIndex = 3;
             this.tp_Maschinen.Text = "Maschinen";
             this.tp_Maschinen.UseVisualStyleBackColor = true;
+            // 
+            // btn_LöschenMaschinen
+            // 
+            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(15, 358);
+            this.btn_LöschenMaschinen.Name = "btn_LöschenMaschinen";
+            this.btn_LöschenMaschinen.Size = new System.Drawing.Size(162, 33);
+            this.btn_LöschenMaschinen.TabIndex = 4;
+            this.btn_LöschenMaschinen.Text = "Löschen";
+            this.btn_LöschenMaschinen.UseVisualStyleBackColor = true;
+            this.btn_LöschenMaschinen.Click += new System.EventHandler(this.btn_LöschenMaschinen_Click);
+            // 
+            // btn_HinzufügenMaschinen
+            // 
+            this.btn_HinzufügenMaschinen.Location = new System.Drawing.Point(231, 103);
+            this.btn_HinzufügenMaschinen.Name = "btn_HinzufügenMaschinen";
+            this.btn_HinzufügenMaschinen.Size = new System.Drawing.Size(131, 33);
+            this.btn_HinzufügenMaschinen.TabIndex = 3;
+            this.btn_HinzufügenMaschinen.Text = "Hinzufügen";
+            this.btn_HinzufügenMaschinen.UseVisualStyleBackColor = true;
+            this.btn_HinzufügenMaschinen.Click += new System.EventHandler(this.btn_HinzufügenMaschinen_Click);
+            // 
+            // txtbx_BezeichnungMaschinen
+            // 
+            this.txtbx_BezeichnungMaschinen.Location = new System.Drawing.Point(231, 66);
+            this.txtbx_BezeichnungMaschinen.Name = "txtbx_BezeichnungMaschinen";
+            this.txtbx_BezeichnungMaschinen.Size = new System.Drawing.Size(131, 22);
+            this.txtbx_BezeichnungMaschinen.TabIndex = 2;
+            // 
+            // lbl_BezeichnungMaschinen
+            // 
+            this.lbl_BezeichnungMaschinen.AutoSize = true;
+            this.lbl_BezeichnungMaschinen.Location = new System.Drawing.Point(250, 31);
+            this.lbl_BezeichnungMaschinen.Name = "lbl_BezeichnungMaschinen";
+            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(90, 17);
+            this.lbl_BezeichnungMaschinen.TabIndex = 1;
+            this.lbl_BezeichnungMaschinen.Text = "Bezeichnung";
+            // 
+            // lsbx_Maschinen
+            // 
+            this.lsbx_Maschinen.FormattingEnabled = true;
+            this.lsbx_Maschinen.ItemHeight = 16;
+            this.lsbx_Maschinen.Location = new System.Drawing.Point(15, 18);
+            this.lsbx_Maschinen.Name = "lsbx_Maschinen";
+            this.lsbx_Maschinen.Size = new System.Drawing.Size(162, 324);
+            this.lsbx_Maschinen.TabIndex = 0;
             // 
             // tp_Log
             // 
@@ -178,6 +235,8 @@ namespace WinProjektlabor
             this.Load += new System.EventHandler(this.Panel_Load);
             this.tp_Verwaltung.ResumeLayout(false);
             this.tc_Verwaltung.ResumeLayout(false);
+            this.tp_Maschinen.ResumeLayout(false);
+            this.tp_Maschinen.PerformLayout();
             this.tp_Log.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).EndInit();
             this.tp_Maschine.ResumeLayout(false);
@@ -201,5 +260,10 @@ namespace WinProjektlabor
         private System.Windows.Forms.Label lbl_Maschine;
         private System.Windows.Forms.TabControl tc_Panel;
         private System.Windows.Forms.DataGridView dgv_Log;
+        private System.Windows.Forms.Button btn_LöschenMaschinen;
+        private System.Windows.Forms.Button btn_HinzufügenMaschinen;
+        private System.Windows.Forms.TextBox txtbx_BezeichnungMaschinen;
+        private System.Windows.Forms.Label lbl_BezeichnungMaschinen;
+        private System.Windows.Forms.ListBox lsbx_Maschinen;
     }
 }

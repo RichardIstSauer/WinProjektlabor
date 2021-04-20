@@ -118,8 +118,15 @@ namespace WinProjektlabor
             M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
             lbl_Status.Visible = true;
             lbl_StatusNachricht.Visible = true;
+        }
 
-            
+ 
+        private void txtbx_Passwort_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btn_Anmelden_Click(sender, e);
+            }
         }
     }
 }

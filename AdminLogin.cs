@@ -38,5 +38,13 @@ namespace WinProjektlabor
                 MessageBox.Show("User oder Passwort falsch!");
             }
         }
+
+        private void txtbx_PasswortAdmin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btn_AnmeldenAdmin_Click(sender, e);
+            }
+        }
     }
 }
