@@ -26,6 +26,7 @@ namespace WinProjektlabor
         private string connString = string.Empty;
         private MySqlConnection connection = null;
         private MySqlCommand command = null;
+ 
 
         #region Konstruktor
         /// <summary>
@@ -449,8 +450,7 @@ namespace WinProjektlabor
             }
         }
 
-       
-
+        
         #endregion
 
         /// <summary>

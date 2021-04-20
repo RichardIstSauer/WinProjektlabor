@@ -24,6 +24,7 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
+            dgv_Log.DataSource = db.TableToDataTable("log");
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
 

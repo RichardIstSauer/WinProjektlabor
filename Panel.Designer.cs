@@ -31,16 +31,19 @@ namespace WinProjektlabor
         {
             this.tp_Verwaltung = new System.Windows.Forms.TabPage();
             this.tc_Verwaltung = new System.Windows.Forms.TabControl();
-            this.tp_USB = new System.Windows.Forms.TabPage();
             this.tp_Member = new System.Windows.Forms.TabPage();
-            this.tp_Maschine = new System.Windows.Forms.TabPage();
-            this.lbl_Maschine = new System.Windows.Forms.Label();
-            this.pb_Maschine = new System.Windows.Forms.PictureBox();
-            this.tc_Panel = new System.Windows.Forms.TabControl();
-            this.tp_Log = new System.Windows.Forms.TabPage();
+            this.tp_USB = new System.Windows.Forms.TabPage();
             this.tp_Maschinen = new System.Windows.Forms.TabPage();
+            this.tp_Log = new System.Windows.Forms.TabPage();
+            this.dgv_Log = new System.Windows.Forms.DataGridView();
+            this.tp_Maschine = new System.Windows.Forms.TabPage();
+            this.pb_Maschine = new System.Windows.Forms.PictureBox();
+            this.lbl_Maschine = new System.Windows.Forms.Label();
+            this.tc_Panel = new System.Windows.Forms.TabControl();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
+            this.tp_Log.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).BeginInit();
             this.tp_Maschine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Maschine)).BeginInit();
             this.tc_Panel.SuspendLayout();
@@ -70,6 +73,16 @@ namespace WinProjektlabor
             this.tc_Verwaltung.Size = new System.Drawing.Size(1063, 526);
             this.tc_Verwaltung.TabIndex = 0;
             // 
+            // tp_Member
+            // 
+            this.tp_Member.Location = new System.Drawing.Point(4, 25);
+            this.tp_Member.Name = "tp_Member";
+            this.tp_Member.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Member.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Member.TabIndex = 0;
+            this.tp_Member.Text = "Member";
+            this.tp_Member.UseVisualStyleBackColor = true;
+            // 
             // tp_USB
             // 
             this.tp_USB.Location = new System.Drawing.Point(4, 25);
@@ -80,15 +93,34 @@ namespace WinProjektlabor
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
             // 
-            // tp_Member
+            // tp_Maschinen
             // 
-            this.tp_Member.Location = new System.Drawing.Point(4, 25);
-            this.tp_Member.Name = "tp_Member";
-            this.tp_Member.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Member.Size = new System.Drawing.Size(1055, 497);
-            this.tp_Member.TabIndex = 0;
-            this.tp_Member.Text = "Member";
-            this.tp_Member.UseVisualStyleBackColor = true;
+            this.tp_Maschinen.Location = new System.Drawing.Point(4, 25);
+            this.tp_Maschinen.Name = "tp_Maschinen";
+            this.tp_Maschinen.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Maschinen.TabIndex = 3;
+            this.tp_Maschinen.Text = "Maschinen";
+            this.tp_Maschinen.UseVisualStyleBackColor = true;
+            // 
+            // tp_Log
+            // 
+            this.tp_Log.Controls.Add(this.dgv_Log);
+            this.tp_Log.Location = new System.Drawing.Point(4, 25);
+            this.tp_Log.Name = "tp_Log";
+            this.tp_Log.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Log.TabIndex = 2;
+            this.tp_Log.Text = "Log";
+            this.tp_Log.UseVisualStyleBackColor = true;
+            // 
+            // dgv_Log
+            // 
+            this.dgv_Log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Log.Location = new System.Drawing.Point(4, 3);
+            this.dgv_Log.Name = "dgv_Log";
+            this.dgv_Log.RowHeadersWidth = 51;
+            this.dgv_Log.RowTemplate.Height = 24;
+            this.dgv_Log.Size = new System.Drawing.Size(812, 393);
+            this.dgv_Log.TabIndex = 0;
             // 
             // tp_Maschine
             // 
@@ -103,6 +135,15 @@ namespace WinProjektlabor
             this.tp_Maschine.Text = "Maschine";
             this.tp_Maschine.UseVisualStyleBackColor = true;
             // 
+            // pb_Maschine
+            // 
+            this.pb_Maschine.Location = new System.Drawing.Point(15, 36);
+            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_Maschine.Name = "pb_Maschine";
+            this.pb_Maschine.Size = new System.Drawing.Size(200, 185);
+            this.pb_Maschine.TabIndex = 1;
+            this.pb_Maschine.TabStop = false;
+            // 
             // lbl_Maschine
             // 
             this.lbl_Maschine.AutoSize = true;
@@ -113,15 +154,6 @@ namespace WinProjektlabor
             this.lbl_Maschine.Size = new System.Drawing.Size(97, 24);
             this.lbl_Maschine.TabIndex = 0;
             this.lbl_Maschine.Text = "Maschine";
-            // 
-            // pb_Maschine
-            // 
-            this.pb_Maschine.Location = new System.Drawing.Point(15, 36);
-            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(4);
-            this.pb_Maschine.Name = "pb_Maschine";
-            this.pb_Maschine.Size = new System.Drawing.Size(200, 185);
-            this.pb_Maschine.TabIndex = 1;
-            this.pb_Maschine.TabStop = false;
             // 
             // tc_Panel
             // 
@@ -134,36 +166,20 @@ namespace WinProjektlabor
             this.tc_Panel.Size = new System.Drawing.Size(1067, 554);
             this.tc_Panel.TabIndex = 0;
             // 
-            // tp_Log
-            // 
-            this.tp_Log.Location = new System.Drawing.Point(4, 25);
-            this.tp_Log.Name = "tp_Log";
-            this.tp_Log.Size = new System.Drawing.Size(1055, 497);
-            this.tp_Log.TabIndex = 2;
-            this.tp_Log.Text = "Log";
-            this.tp_Log.UseVisualStyleBackColor = true;
-            // 
-            // tp_Maschinen
-            // 
-            this.tp_Maschinen.Location = new System.Drawing.Point(4, 25);
-            this.tp_Maschinen.Name = "tp_Maschinen";
-            this.tp_Maschinen.Size = new System.Drawing.Size(1055, 497);
-            this.tp_Maschinen.TabIndex = 3;
-            this.tp_Maschinen.Text = "Maschinen";
-            this.tp_Maschinen.UseVisualStyleBackColor = true;
-            // 
             // Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tc_Panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Panel";
             this.Text = "Panel";
             this.Load += new System.EventHandler(this.Panel_Load);
             this.tp_Verwaltung.ResumeLayout(false);
             this.tc_Verwaltung.ResumeLayout(false);
+            this.tp_Log.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Log)).EndInit();
             this.tp_Maschine.ResumeLayout(false);
             this.tp_Maschine.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Maschine)).EndInit();
@@ -184,5 +200,6 @@ namespace WinProjektlabor
         private System.Windows.Forms.PictureBox pb_Maschine;
         private System.Windows.Forms.Label lbl_Maschine;
         private System.Windows.Forms.TabControl tc_Panel;
+        private System.Windows.Forms.DataGridView dgv_Log;
     }
 }
