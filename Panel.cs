@@ -28,7 +28,6 @@ namespace WinProjektlabor
         {
             usbDetect = new UsbDetect();
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
-            dgv_Log.DataSource = db.TableToDataTable("log");
             Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
 
@@ -46,7 +45,7 @@ namespace WinProjektlabor
             }
             else
             {
-                MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!")
+                MessageBox.Show("Bitte geben sie eine Bezeichnung für die Maschine ein!");
             }
             
         }
