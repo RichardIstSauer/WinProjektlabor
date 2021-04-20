@@ -39,12 +39,15 @@ namespace WinProjektlabor
 
             iButtonID = drive.Start(driveName);
 
+            // Ausgelesene iButtonID abgleichen ob diese existiert.
             bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
 
+            // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
             if (iButtonID != "0" && result) {
                 this.Invoke(new Action(() => lbl_Passwort.Visible = true));
                 this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
                 this.Invoke(new Action(() => btn_Anmelden.Visible = true));
+                this.Invoke(new Action(() => lbl_Anmelden.Visible = true));
                 this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
                 this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
             }
@@ -62,10 +65,12 @@ namespace WinProjektlabor
             this.Invoke(new Action(() => lbl_Passwort.Visible = false));
             this.Invoke(new Action(() => txtbx_Passwort.Visible = false));
             this.Invoke(new Action(() => btn_Anmelden.Visible = false));
+            this.Invoke(new Action(() => lbl_Anmelden.Visible = false));
             this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!"));
             this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
         }
 
+        // Abgleichen des Passworts + der iButtonID
         private void btn_Anmelden_Click(object sender, EventArgs e)
         {
             string EnteredPassword = txtbx_Passwort.Text;
