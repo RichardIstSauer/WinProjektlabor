@@ -32,7 +32,7 @@ namespace WinProjektlabor
             {
                 txtbx_PasswortAdmin.Text = "";
                 txtbx_UserAdmin.Text = "";
-                MessageBox.Show("User oder Passwort falsch!");
+                MessageBox.Show("User oder Passwort falsch!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -43,6 +43,11 @@ namespace WinProjektlabor
             {
                 btn_AnmeldenAdmin_Click(sender, e);
             }
+        }
+
+        private void AdminLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

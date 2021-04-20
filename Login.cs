@@ -91,7 +91,7 @@ namespace WinProjektlabor
                 }
                 else
                 {
-                    MessageBox.Show("Maschine ist ihnen nicht zugewiesen!");
+                    MessageBox.Show("Maschine ist ihnen nicht zugewiesen!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                
@@ -99,7 +99,7 @@ namespace WinProjektlabor
             else
             {
                 txtbx_Passwort.Text = "";
-                MessageBox.Show("Passwort falsch!");
+                MessageBox.Show("Passwort falsch!","Warnung",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
         }
 
