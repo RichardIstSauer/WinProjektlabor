@@ -40,9 +40,7 @@ namespace WinProjektlabor
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
         {
-            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
             string driveName = ((DriveInfoEventArgs)e).DriveName;
-            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
             Application.Exit();
         }
 
