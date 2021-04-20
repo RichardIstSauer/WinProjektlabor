@@ -51,7 +51,18 @@ namespace WinProjektlabor
             
         }
 
-       
+        private void UsbDetect_DriveRemoved(object sender, EventArgs e)
+        {
+            string driveName = ((DriveInfoEventArgs)e).DriveName;
+            Application.Exit();
+        }
+
+        private void Panel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
+            Application.Exit();
+        }
 
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
