@@ -174,6 +174,7 @@ namespace WinProjektlabor
                     outImage = ByteToImage(imageBytes);
                     return resizeImage(outImage, new Size(150, 150));
                 }
+                connection.Close();
 
                 return null;
 

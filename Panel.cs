@@ -59,8 +59,10 @@ namespace WinProjektlabor
 
         private void Panel_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
-            db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
+            if (M_ID != null) {
+                string ende = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+                db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");
+            }
             Application.Exit();
         }
 
