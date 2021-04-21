@@ -44,8 +44,8 @@ namespace WinProjektlabor
             // Ausgelesene iButtonID abgleichen ob diese existiert.
             bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
 
-            // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
-            if (iButtonID != "0" && result) {
+            // Wenn die iButtonID existiert wird der Login freigegeben
+            if (result) {
                 this.Invoke(new Action(() => lbl_Passwort.Visible = true));
                 this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
                 this.Invoke(new Action(() => btn_Anmelden.Visible = true));
