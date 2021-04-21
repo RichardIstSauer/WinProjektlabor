@@ -128,6 +128,24 @@ namespace WinProjektlabor
         /// Führt allgemeine Querys, wie "INSERT INTO", "UPDATE", "DELETE FROM" etc. aus.
         /// </summary>
         /// <param name="_query">Auszuführende SQL-Query</param>
+        public void ExecuteQueryImg(string _query, MySqlParameter blob)
+        {
+            try
+            {
+                connection.Open();
+                command = new MySqlCommand(_query, connection);
+                command.Parameters.Add(blob);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                if (connection != null && connection.State == System.Data.ConnectionState.Open)
+                    connection.Close();
+                MessageBox.Show(ex.Message, "Datenbank Verbindungsfehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void ExecuteQuery(string _query)
         {
             try
@@ -192,6 +210,15 @@ namespace WinProjektlabor
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+
+        public byte[] imageToByte(Image img)
+        {
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
 
         public static Bitmap ByteToImage(byte[] blob)
         {
