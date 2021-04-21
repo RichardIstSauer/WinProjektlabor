@@ -35,6 +35,11 @@ namespace WinProjektlabor
             this.btn_LöschenMember = new System.Windows.Forms.Button();
             this.dgv_Member = new System.Windows.Forms.DataGridView();
             this.tb_Zuweisung = new System.Windows.Forms.TabPage();
+            this.btn_Zuweisungneu = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbx_Zuweisungmaschine = new System.Windows.Forms.ComboBox();
+            this.cmbx_Zuweisunguser = new System.Windows.Forms.ComboBox();
             this.btnLoeschenZuweisung = new System.Windows.Forms.Button();
             this.dgv_Zuweisung = new System.Windows.Forms.DataGridView();
             this.tp_USB = new System.Windows.Forms.TabPage();
@@ -59,11 +64,6 @@ namespace WinProjektlabor
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.cmbx_Zuweisunguser = new System.Windows.Forms.ComboBox();
-            this.cmbx_Zuweisungmaschine = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_Zuweisungneu = new System.Windows.Forms.Button();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_Member.SuspendLayout();
@@ -85,11 +85,11 @@ namespace WinProjektlabor
             // tp_Verwaltung
             // 
             this.tp_Verwaltung.Controls.Add(this.tc_Verwaltung);
-            this.tp_Verwaltung.Location = new System.Drawing.Point(4, 25);
+            this.tp_Verwaltung.Location = new System.Drawing.Point(4, 22);
             this.tp_Verwaltung.Margin = new System.Windows.Forms.Padding(5);
             this.tp_Verwaltung.Name = "tp_Verwaltung";
             this.tp_Verwaltung.Padding = new System.Windows.Forms.Padding(5);
-            this.tp_Verwaltung.Size = new System.Drawing.Size(1059, 525);
+            this.tp_Verwaltung.Size = new System.Drawing.Size(792, 424);
             this.tp_Verwaltung.TabIndex = 1;
             this.tp_Verwaltung.Text = "Verwaltung";
             this.tp_Verwaltung.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMember
             // 
-            this.btn_LöschenMember.Location = new System.Drawing.Point(17, 441);
+            this.btn_LöschenMember.Location = new System.Drawing.Point(13, 352);
             this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
             this.btn_LöschenMember.Size = new System.Drawing.Size(663, 24);
@@ -161,6 +161,50 @@ namespace WinProjektlabor
             this.tb_Zuweisung.TabIndex = 4;
             this.tb_Zuweisung.Text = "Zuweisung";
             this.tb_Zuweisung.UseVisualStyleBackColor = true;
+            // 
+            // btn_Zuweisungneu
+            // 
+            this.btn_Zuweisungneu.Location = new System.Drawing.Point(580, 119);
+            this.btn_Zuweisungneu.Name = "btn_Zuweisungneu";
+            this.btn_Zuweisungneu.Size = new System.Drawing.Size(149, 24);
+            this.btn_Zuweisungneu.TabIndex = 9;
+            this.btn_Zuweisungneu.Text = "Hinzufügen";
+            this.btn_Zuweisungneu.UseVisualStyleBackColor = true;
+            this.btn_Zuweisungneu.Click += new System.EventHandler(this.btn_Zuweisungneu_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(577, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Benutzer";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(577, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Maschine";
+            // 
+            // cmbx_Zuweisungmaschine
+            // 
+            this.cmbx_Zuweisungmaschine.FormattingEnabled = true;
+            this.cmbx_Zuweisungmaschine.Location = new System.Drawing.Point(580, 92);
+            this.cmbx_Zuweisungmaschine.Name = "cmbx_Zuweisungmaschine";
+            this.cmbx_Zuweisungmaschine.Size = new System.Drawing.Size(149, 21);
+            this.cmbx_Zuweisungmaschine.TabIndex = 6;
+            // 
+            // cmbx_Zuweisunguser
+            // 
+            this.cmbx_Zuweisunguser.FormattingEnabled = true;
+            this.cmbx_Zuweisunguser.Location = new System.Drawing.Point(580, 39);
+            this.cmbx_Zuweisunguser.Name = "cmbx_Zuweisunguser";
+            this.cmbx_Zuweisunguser.Size = new System.Drawing.Size(149, 21);
+            this.cmbx_Zuweisunguser.TabIndex = 5;
             // 
             // btnLoeschenZuweisung
             // 
@@ -266,7 +310,7 @@ namespace WinProjektlabor
             // 
             // btn_LöschenUSB
             // 
-            this.btn_LöschenUSB.Location = new System.Drawing.Point(17, 423);
+            this.btn_LöschenUSB.Location = new System.Drawing.Point(13, 344);
             this.btn_LöschenUSB.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_LöschenUSB.Name = "btn_LöschenUSB";
             this.btn_LöschenUSB.Size = new System.Drawing.Size(273, 24);
@@ -387,11 +431,11 @@ namespace WinProjektlabor
             // 
             this.tp_Maschine.Controls.Add(this.pb_Maschine);
             this.tp_Maschine.Controls.Add(this.lbl_Maschine);
-            this.tp_Maschine.Location = new System.Drawing.Point(4, 25);
+            this.tp_Maschine.Location = new System.Drawing.Point(4, 22);
             this.tp_Maschine.Margin = new System.Windows.Forms.Padding(4);
             this.tp_Maschine.Name = "tp_Maschine";
             this.tp_Maschine.Padding = new System.Windows.Forms.Padding(4);
-            this.tp_Maschine.Size = new System.Drawing.Size(1059, 525);
+            this.tp_Maschine.Size = new System.Drawing.Size(792, 424);
             this.tp_Maschine.TabIndex = 0;
             this.tp_Maschine.Text = "Maschine";
             this.tp_Maschine.UseVisualStyleBackColor = true;
@@ -429,50 +473,6 @@ namespace WinProjektlabor
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // cmbx_Zuweisunguser
-            // 
-            this.cmbx_Zuweisunguser.FormattingEnabled = true;
-            this.cmbx_Zuweisunguser.Location = new System.Drawing.Point(580, 39);
-            this.cmbx_Zuweisunguser.Name = "cmbx_Zuweisunguser";
-            this.cmbx_Zuweisunguser.Size = new System.Drawing.Size(149, 21);
-            this.cmbx_Zuweisunguser.TabIndex = 5;
-            // 
-            // cmbx_Zuweisungmaschine
-            // 
-            this.cmbx_Zuweisungmaschine.FormattingEnabled = true;
-            this.cmbx_Zuweisungmaschine.Location = new System.Drawing.Point(580, 92);
-            this.cmbx_Zuweisungmaschine.Name = "cmbx_Zuweisungmaschine";
-            this.cmbx_Zuweisungmaschine.Size = new System.Drawing.Size(149, 21);
-            this.cmbx_Zuweisungmaschine.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(577, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Maschine";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(577, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Benutzer";
-            // 
-            // btn_Zuweisungneu
-            // 
-            this.btn_Zuweisungneu.Location = new System.Drawing.Point(580, 119);
-            this.btn_Zuweisungneu.Name = "btn_Zuweisungneu";
-            this.btn_Zuweisungneu.Size = new System.Drawing.Size(149, 24);
-            this.btn_Zuweisungneu.TabIndex = 9;
-            this.btn_Zuweisungneu.Text = "Hinzufügen";
-            this.btn_Zuweisungneu.UseVisualStyleBackColor = true;
-            this.btn_Zuweisungneu.Click += new System.EventHandler(this.btn_Zuweisungneu_Click);
             // 
             // Panel
             // 
