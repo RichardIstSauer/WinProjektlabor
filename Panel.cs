@@ -12,6 +12,7 @@ namespace WinProjektlabor
 {
     public partial class Panel : Form
     {
+        Random random = new Random();
         Drive drive = new Drive();
         string driveName;
         string driveLabel;
@@ -55,21 +56,29 @@ namespace WinProjektlabor
 
             iButtonID = drive.Start(driveName);
 
-            // Ausgelesene iButtonID abgleichen ob diese existiert.
-            bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
+            bool result = db.QueryToBool($"select * from user where iButtonID = '{iButtonID}'");
 
-            // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
-            if (iButtonID != "0" && result)
-            {
-                this.Invoke(new Action(() => pn_YesUSB.Visible = true));
-                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
-                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
-            }
-            else
-            {
-                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Kein valider USB-Stick gefunden."));
-                this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
-            }
+            //// Ausgelesene iButtonID abgleichen ob diese existiert.
+            //bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
+
+            //// Wenn die iButtonID existiert und die Config existiert ändert sich der Status
+            //if (iButtonID != "0" && result)
+            //{
+            //    this.Invoke(new Action(() => pn_YesUSB.Visible = true));
+            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
+            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
+
+            //}
+            //if (result)
+            //{
+            //    db.QueryToStringNew("select vorname, nachname from user where iBUttonID = '{iButtonID}'");
+            //    lbl_GehörtUSB.Text =
+            //}
+            //else
+            //{
+            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Kein valider USB-Stick gefunden."));
+            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
+            //}
         }
 
 
@@ -95,7 +104,7 @@ namespace WinProjektlabor
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
-            dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine");
+            dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
             dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
 
         }
@@ -108,12 +117,8 @@ namespace WinProjektlabor
                 int selectedIndex = dgv_Maschinen.SelectedRows[0].Index;
                 string rowID = dgv_Maschinen[0, selectedIndex].Value.ToString();
 
-                db.ExecuteQuery($"delete from maschine where MaschinenID='{rowID}'");
-                if (!db.QueryToBool($"select * from maschine where MaschinenID='{rowID}'"))
-                {
-                    dgv_Maschinen.Rows.RemoveAt(selectedIndex);
-
-                }
+                db.ExecuteQuery($"update maschine set Aktiv='0' where MaschinenID='{rowID}'");
+                dgv_Maschinen.Rows.RemoveAt(selectedIndex);
             }
 
         }
@@ -130,14 +135,27 @@ namespace WinProjektlabor
                 if (!db.QueryToBool($"select * from ibutton where iButtonID='{rowID}'"))
                 {
                     dgv_USB.Rows.RemoveAt(selectedIndex);
-
                 }
 
             }
 
         }
 
-      
+        private void btn_HinzufügenMaschinen_Click(object sender, EventArgs e)
+        {
+            string MaschinenID = $"pl{random.Next(5, 200)}";
+            bool result = db.QueryToBool($"select * from maschine where MaschinenID='{MaschinenID}'");
+            if (!result)
+            {
+                db.ExecuteQuery($"Insert into maschine (MaschinenID,Bezeichnung) Values ('{MaschinenID}','{txtbx_BezeichnungMaschinen.Text}')");
+                dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
+                txtbx_BezeichnungMaschinen.Text = "";
+            }
+            else
+            {
+                btn_HinzufügenMaschinen_Click(sender, e);
+            }
+        }
     }
 }
 
