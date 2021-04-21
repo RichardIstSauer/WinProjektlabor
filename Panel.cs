@@ -45,7 +45,7 @@ namespace WinProjektlabor
                 cb_iButtonID.Items.Add(row);
             }
 
-            if (Keymember == "0")
+            if (Keymember == "0" || (Keymember == "1" && M_ID != "Verwaltung"))
             {
                 tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
             }
