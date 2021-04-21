@@ -62,9 +62,6 @@ namespace WinProjektlabor
                     cmbx_LoginMaschine.Select();
                     lbl_Maschinenauswahl.Visible = true;
                     cmbx_LoginMaschine.Visible = true;
-                    lbl_Passwort.Visible = true;
-                    txtbx_Passwort.Visible = true;
-                    btn_Anmelden.Visible = true;
                     lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!";
                     lbl_StatusNachricht.ForeColor = Color.Green;
                 }));
@@ -135,13 +132,20 @@ namespace WinProjektlabor
         {
             if (cmbx_LoginMaschine.SelectedItem != "Verwaltung") {
                 M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
+                if(M_ID != "")
+                {
+                    lbl_Passwort.Visible = true;
+                    txtbx_Passwort.Visible = true;
+                    btn_Anmelden.Visible = true;
+                }
             }
             else
             {
                 M_ID = "Verwaltung";
+                lbl_Passwort.Visible = true;
+                txtbx_Passwort.Visible = true;
+                btn_Anmelden.Visible = true;
             }
-            lbl_Status.Visible = true;
-            lbl_StatusNachricht.Visible = true;
         }
 
         //Mit Enter Anmelden
