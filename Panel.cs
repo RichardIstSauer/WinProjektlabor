@@ -197,9 +197,13 @@ namespace WinProjektlabor
                 string rowID = dgv_Member[0, selectedIndex].Value.ToString();
 
                 db.ExecuteQuery($"update user set Aktiv='0' where UserID='{rowID}'");
+                string iButtonID = db.QueryToStringNew($"select iButtonID from user where UserID='{rowID}'");
+                db.ExecuteQuery($"delete from zuweisung where iButtonID='{iButtonID}'");
                 dgv_Member.Rows.RemoveAt(selectedIndex);
             }
         }
+
+       
     }
 }
 
