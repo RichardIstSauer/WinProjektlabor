@@ -50,7 +50,6 @@ namespace WinProjektlabor
             this.lbl_Status.Size = new System.Drawing.Size(93, 18);
             this.lbl_Status.TabIndex = 0;
             this.lbl_Status.Text = "USB Status:";
-            this.lbl_Status.Visible = false;
             // 
             // lbl_StatusNachricht
             // 
@@ -63,7 +62,6 @@ namespace WinProjektlabor
             this.lbl_StatusNachricht.Size = new System.Drawing.Size(154, 14);
             this.lbl_StatusNachricht.TabIndex = 1;
             this.lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!";
-            this.lbl_StatusNachricht.Visible = false;
             // 
             // lbl_Passwort
             // 
@@ -82,7 +80,7 @@ namespace WinProjektlabor
             // 
             this.txtbx_Passwort.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_Passwort.Location = new System.Drawing.Point(27, 242);
-            this.txtbx_Passwort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbx_Passwort.Margin = new System.Windows.Forms.Padding(2);
             this.txtbx_Passwort.Name = "txtbx_Passwort";
             this.txtbx_Passwort.PasswordChar = '*';
             this.txtbx_Passwort.Size = new System.Drawing.Size(237, 20);
@@ -94,7 +92,7 @@ namespace WinProjektlabor
             // 
             this.btn_Anmelden.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Anmelden.Location = new System.Drawing.Point(27, 277);
-            this.btn_Anmelden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Anmelden.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Anmelden.Name = "btn_Anmelden";
             this.btn_Anmelden.Size = new System.Drawing.Size(237, 26);
             this.btn_Anmelden.TabIndex = 4;
@@ -107,7 +105,7 @@ namespace WinProjektlabor
             // 
             this.btn_Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Admin.Location = new System.Drawing.Point(265, 11);
-            this.btn_Admin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Admin.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Admin.Name = "btn_Admin";
             this.btn_Admin.Size = new System.Drawing.Size(20, 19);
             this.btn_Admin.TabIndex = 5;
@@ -130,10 +128,12 @@ namespace WinProjektlabor
             // 
             this.cmbx_LoginMaschine.FormattingEnabled = true;
             this.cmbx_LoginMaschine.Location = new System.Drawing.Point(92, 102);
-            this.cmbx_LoginMaschine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbx_LoginMaschine.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbx_LoginMaschine.MaxDropDownItems = 32;
             this.cmbx_LoginMaschine.Name = "cmbx_LoginMaschine";
             this.cmbx_LoginMaschine.Size = new System.Drawing.Size(117, 21);
             this.cmbx_LoginMaschine.TabIndex = 7;
+            this.cmbx_LoginMaschine.Visible = false;
             this.cmbx_LoginMaschine.SelectedIndexChanged += new System.EventHandler(this.cmbx_LoginMaschine_SelectedIndexChanged);
             // 
             // lbl_Maschinenauswahl
@@ -146,6 +146,7 @@ namespace WinProjektlabor
             this.lbl_Maschinenauswahl.Size = new System.Drawing.Size(178, 16);
             this.lbl_Maschinenauswahl.TabIndex = 8;
             this.lbl_Maschinenauswahl.Text = "Bitte Maschine auswählen!";
+            this.lbl_Maschinenauswahl.Visible = false;
             // 
             // Login
             // 

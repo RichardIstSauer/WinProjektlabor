@@ -16,6 +16,7 @@ namespace WinProjektlabor
         Drive drive = new Drive();
         Dbase db = new Dbase("projektlabor");
         string driveName;
+        string Keymember;
         string driveLabel;
         string iButtonID;
         string M_ID;
@@ -29,8 +30,6 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
-            cmbx_LoginMaschine.Select();
-            cmbx_LoginMaschine.DataSource = db.TableToListOne("maschine","Bezeichnung");
         }
 
 
@@ -44,19 +43,38 @@ namespace WinProjektlabor
             // Ausgelesene iButtonID abgleichen ob diese existiert.
             bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
 
-            // Wenn die iButtonID existiert wird der Login freigegeben
-            if (result) {
-                this.Invoke(new Action(() => lbl_Passwort.Visible = true));
-                this.Invoke(new Action(() => txtbx_Passwort.Visible = true));
-                this.Invoke(new Action(() => btn_Anmelden.Visible = true));
-                this.Invoke(new Action(() => lbl_Anmelden.Visible = true));
-                this.Invoke(new Action(() => lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
-                this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Green));
+            // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
+            if (iButtonID != "0" && result) {
+                this.Invoke(new Action(() => {
+
+                    cmbx_LoginMaschine.Items.Clear();
+                    Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
+                    if (Keymember == "1")
+                    {
+                        cmbx_LoginMaschine.Items.Add("Verwaltung");
+                        cmbx_LoginMaschine.SelectedItem = "Verwaltung";
+                    }
+
+                    foreach (string row in db.TableToListOne("maschine, zuweisung", "Bezeichnung", $"zuweisung.MaschinenID=maschine.MaschinenID AND iButtonID = '{iButtonID}'"))
+                    {
+                        cmbx_LoginMaschine.Items.Add(row);
+                    }
+                    cmbx_LoginMaschine.Select();
+                    lbl_Maschinenauswahl.Visible = true;
+                    cmbx_LoginMaschine.Visible = true;
+                    lbl_Passwort.Visible = true;
+                    txtbx_Passwort.Visible = true;
+                    btn_Anmelden.Visible = true;
+                    lbl_StatusNachricht.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!";
+                    lbl_StatusNachricht.ForeColor = Color.Green;
+                }));
             }
             else
             {
-                this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Kein valider USB-Stick gefunden."));
-                this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
+                this.Invoke(new Action(() => {
+                    lbl_StatusNachricht.Text = "Kein valider USB-Stick gefunden.";
+                    lbl_StatusNachricht.ForeColor = Color.Red;
+                }));
             }
         }
 
@@ -64,12 +82,16 @@ namespace WinProjektlabor
         {
             driveName = ((DriveInfoEventArgs)e).DriveName;
             //MessageBox.Show($"Drive {driveName} removed");
-            this.Invoke(new Action(() => lbl_Passwort.Visible = false));
-            this.Invoke(new Action(() => txtbx_Passwort.Visible = false));
-            this.Invoke(new Action(() => btn_Anmelden.Visible = false));
-            this.Invoke(new Action(() => lbl_Anmelden.Visible = false));
-            this.Invoke(new Action(() => lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!"));
-            this.Invoke(new Action(() => lbl_StatusNachricht.ForeColor = Color.Red));
+            this.Invoke(new Action(() => {
+                lbl_Maschinenauswahl.Visible = false;
+                cmbx_LoginMaschine.Visible = false;
+                lbl_Passwort.Visible = false;
+                txtbx_Passwort.Visible = false;
+                btn_Anmelden.Visible = false;
+                lbl_Anmelden.Visible = false;
+                lbl_StatusNachricht.Text = "Bitte USB Stick einstecken!";
+                lbl_StatusNachricht.ForeColor = Color.Red;
+            }));
         }
 
         // Abgleichen des Passworts + der iButtonID
@@ -81,18 +103,12 @@ namespace WinProjektlabor
 
             if(result)
             {
-                if (db.QueryToBool($"SELECT * from zuweisung WHERE MaschinenID = '{M_ID}' AND iButtonID = '{iButtonID}'"))
-                {
-                    this.Hide();
-                    Panel panel = new Panel();
-                    panel.M_ID = M_ID;
-                    panel.iButtonID = iButtonID;
-                    panel.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Maschine ist ihnen nicht zugewiesen!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                this.Hide();
+                Panel panel = new Panel();
+                panel.M_ID = M_ID;
+                panel.Keymember = Keymember;
+                panel.iButtonID = iButtonID;
+                panel.Show();
 
                
             }
@@ -117,7 +133,13 @@ namespace WinProjektlabor
         //Erscheinen des USB Statuses
         private void cmbx_LoginMaschine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
+            if (cmbx_LoginMaschine.SelectedItem != "Verwaltung") {
+                M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
+            }
+            else
+            {
+                M_ID = "Verwaltung";
+            }
             lbl_Status.Visible = true;
             lbl_StatusNachricht.Visible = true;
         }
