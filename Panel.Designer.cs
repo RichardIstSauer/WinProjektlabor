@@ -85,11 +85,11 @@ namespace WinProjektlabor
             // tp_Verwaltung
             // 
             this.tp_Verwaltung.Controls.Add(this.tc_Verwaltung);
-            this.tp_Verwaltung.Location = new System.Drawing.Point(4, 22);
-            this.tp_Verwaltung.Margin = new System.Windows.Forms.Padding(4);
+            this.tp_Verwaltung.Location = new System.Drawing.Point(4, 25);
+            this.tp_Verwaltung.Margin = new System.Windows.Forms.Padding(5);
             this.tp_Verwaltung.Name = "tp_Verwaltung";
-            this.tp_Verwaltung.Padding = new System.Windows.Forms.Padding(4);
-            this.tp_Verwaltung.Size = new System.Drawing.Size(792, 424);
+            this.tp_Verwaltung.Padding = new System.Windows.Forms.Padding(5);
+            this.tp_Verwaltung.Size = new System.Drawing.Size(1059, 525);
             this.tp_Verwaltung.TabIndex = 1;
             this.tp_Verwaltung.Text = "Verwaltung";
             this.tp_Verwaltung.UseVisualStyleBackColor = true;
@@ -124,7 +124,8 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMember
             // 
-            this.btn_LöschenMember.Location = new System.Drawing.Point(13, 358);
+            this.btn_LöschenMember.Location = new System.Drawing.Point(17, 441);
+            this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
             this.btn_LöschenMember.Size = new System.Drawing.Size(663, 24);
             this.btn_LöschenMember.TabIndex = 2;
@@ -205,8 +206,8 @@ namespace WinProjektlabor
             this.pn_YesUSB.Controls.Add(this.lbl_GehörtUSB);
             this.pn_YesUSB.Controls.Add(this.lbl_UserUSB);
             this.pn_YesUSB.Controls.Add(this.btn_LoeschenUSB);
-            this.pn_YesUSB.Location = new System.Drawing.Point(450, 89);
-            this.pn_YesUSB.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_YesUSB.Location = new System.Drawing.Point(451, 99);
+            this.pn_YesUSB.Margin = new System.Windows.Forms.Padding(5);
             this.pn_YesUSB.Name = "pn_YesUSB";
             this.pn_YesUSB.Size = new System.Drawing.Size(200, 100);
             this.pn_YesUSB.TabIndex = 8;
@@ -232,10 +233,10 @@ namespace WinProjektlabor
             // 
             // btn_LoeschenUSB
             // 
-            this.btn_LoeschenUSB.Location = new System.Drawing.Point(163, 91);
-            this.btn_LoeschenUSB.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_LoeschenUSB.Location = new System.Drawing.Point(162, 90);
+            this.btn_LoeschenUSB.Margin = new System.Windows.Forms.Padding(5);
             this.btn_LoeschenUSB.Name = "btn_LoeschenUSB";
-            this.btn_LoeschenUSB.Size = new System.Drawing.Size(75, 23);
+            this.btn_LoeschenUSB.Size = new System.Drawing.Size(100, 30);
             this.btn_LoeschenUSB.TabIndex = 7;
             this.btn_LoeschenUSB.Text = "Löschen";
             this.btn_LoeschenUSB.UseVisualStyleBackColor = true;
@@ -265,8 +266,8 @@ namespace WinProjektlabor
             // 
             // btn_LöschenUSB
             // 
-            this.btn_LöschenUSB.Location = new System.Drawing.Point(22, 433);
-            this.btn_LöschenUSB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_LöschenUSB.Location = new System.Drawing.Point(17, 423);
+            this.btn_LöschenUSB.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_LöschenUSB.Name = "btn_LöschenUSB";
             this.btn_LöschenUSB.Size = new System.Drawing.Size(273, 24);
             this.btn_LöschenUSB.TabIndex = 3;
@@ -386,17 +387,19 @@ namespace WinProjektlabor
             // 
             this.tp_Maschine.Controls.Add(this.pb_Maschine);
             this.tp_Maschine.Controls.Add(this.lbl_Maschine);
-            this.tp_Maschine.Location = new System.Drawing.Point(4, 22);
+            this.tp_Maschine.Location = new System.Drawing.Point(4, 25);
+            this.tp_Maschine.Margin = new System.Windows.Forms.Padding(4);
             this.tp_Maschine.Name = "tp_Maschine";
-            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_Maschine.Size = new System.Drawing.Size(792, 424);
+            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(4);
+            this.tp_Maschine.Size = new System.Drawing.Size(1059, 525);
             this.tp_Maschine.TabIndex = 0;
             this.tp_Maschine.Text = "Maschine";
             this.tp_Maschine.UseVisualStyleBackColor = true;
             // 
             // pb_Maschine
             // 
-            this.pb_Maschine.Location = new System.Drawing.Point(11, 29);
+            this.pb_Maschine.Location = new System.Drawing.Point(15, 36);
+            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(4);
             this.pb_Maschine.Name = "pb_Maschine";
             this.pb_Maschine.Size = new System.Drawing.Size(150, 150);
             this.pb_Maschine.TabIndex = 1;
@@ -417,7 +420,7 @@ namespace WinProjektlabor
             this.tc_Panel.Controls.Add(this.tp_Maschine);
             this.tc_Panel.Controls.Add(this.tp_Verwaltung);
             this.tc_Panel.Location = new System.Drawing.Point(0, 0);
-            this.tc_Panel.Margin = new System.Windows.Forms.Padding(4);
+            this.tc_Panel.Margin = new System.Windows.Forms.Padding(5);
             this.tc_Panel.Name = "tc_Panel";
             this.tc_Panel.SelectedIndex = 0;
             this.tc_Panel.Size = new System.Drawing.Size(800, 450);
@@ -478,7 +481,7 @@ namespace WinProjektlabor
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tc_Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "Panel";
             this.Text = "Panel";
