@@ -176,7 +176,7 @@ namespace WinProjektlabor
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -273,7 +273,7 @@ namespace WinProjektlabor
             }
             else
             {
-                MessageBox.Show("Bitte alle Felder ausfüllen!");
+                MessageBox.Show("Bitte alle Felder ausfüllen!","Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
