@@ -174,7 +174,7 @@ namespace WinProjektlabor
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(670, 178);
+            this.label9.Location = new System.Drawing.Point(670, 180);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
@@ -183,7 +183,7 @@ namespace WinProjektlabor
             // 
             // tb_Passwort
             // 
-            this.tb_Passwort.Location = new System.Drawing.Point(672, 191);
+            this.tb_Passwort.Location = new System.Drawing.Point(672, 195);
             this.tb_Passwort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_Passwort.Name = "tb_Passwort";
             this.tb_Passwort.PasswordChar = '*';
@@ -193,7 +193,7 @@ namespace WinProjektlabor
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(670, 144);
+            this.label10.Location = new System.Drawing.Point(670, 142);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 13);
@@ -211,7 +211,7 @@ namespace WinProjektlabor
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(670, 82);
+            this.label5.Location = new System.Drawing.Point(670, 83);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
@@ -220,7 +220,7 @@ namespace WinProjektlabor
             // 
             // tb_EMail
             // 
-            this.tb_EMail.Location = new System.Drawing.Point(672, 95);
+            this.tb_EMail.Location = new System.Drawing.Point(672, 98);
             this.tb_EMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_EMail.Name = "tb_EMail";
             this.tb_EMail.Size = new System.Drawing.Size(92, 20);
@@ -229,7 +229,7 @@ namespace WinProjektlabor
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(670, 48);
+            this.label4.Location = new System.Drawing.Point(670, 47);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
@@ -238,7 +238,7 @@ namespace WinProjektlabor
             // 
             // tb_Nachname
             // 
-            this.tb_Nachname.Location = new System.Drawing.Point(672, 61);
+            this.tb_Nachname.Location = new System.Drawing.Point(672, 63);
             this.tb_Nachname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_Nachname.Name = "tb_Nachname";
             this.tb_Nachname.Size = new System.Drawing.Size(92, 20);
@@ -247,7 +247,7 @@ namespace WinProjektlabor
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(670, 14);
+            this.label3.Location = new System.Drawing.Point(670, 11);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
@@ -256,7 +256,7 @@ namespace WinProjektlabor
             // 
             // tb_Vorname
             // 
-            this.tb_Vorname.Location = new System.Drawing.Point(672, 27);
+            this.tb_Vorname.Location = new System.Drawing.Point(672, 25);
             this.tb_Vorname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_Vorname.Name = "tb_Vorname";
             this.tb_Vorname.Size = new System.Drawing.Size(92, 20);
@@ -265,7 +265,7 @@ namespace WinProjektlabor
             // cb_iButtonID
             // 
             this.cb_iButtonID.FormattingEnabled = true;
-            this.cb_iButtonID.Location = new System.Drawing.Point(672, 227);
+            this.cb_iButtonID.Location = new System.Drawing.Point(672, 231);
             this.cb_iButtonID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cb_iButtonID.Name = "cb_iButtonID";
             this.cb_iButtonID.Size = new System.Drawing.Size(92, 21);
@@ -274,7 +274,7 @@ namespace WinProjektlabor
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(670, 213);
+            this.label6.Location = new System.Drawing.Point(670, 217);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
