@@ -38,6 +38,13 @@ namespace WinProjektlabor
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
             pb_Maschine.Image = db.loadImage(M_ID);
 
+            cb_iButtonID.Items.Clear();
+
+            foreach (string row in db.TableToListOne("ibutton", "iButtonID", $"ibutton.iButtonID NOT IN (SELECT user.iButtonID FROM user WHERE Aktiv='1')"))
+            {
+                cb_iButtonID.Items.Add(row);
+            }
+
             if (Keymember == "0")
             {
                 tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
@@ -116,6 +123,13 @@ namespace WinProjektlabor
             foreach (string row in db.TableToListOne("user", "Benutzername", $"Aktiv='1'"))
             {
                 cmbx_Zuweisunguser.Items.Add(row);
+            }
+
+            cb_iButtonID.Items.Clear();
+
+            foreach (string row in db.TableToListOne("ibutton", "iButtonID", $"ibutton.iButtonID NOT IN (SELECT user.iButtonID FROM user WHERE Aktiv='1')"))
+            {
+                cb_iButtonID.Items.Add(row);
             }
         }
 
@@ -207,6 +221,13 @@ namespace WinProjektlabor
                 string iButtonID = db.QueryToStringNew($"select iButtonID from user where UserID='{rowID}'");
                 db.ExecuteQuery($"delete from zuweisung where iButtonID='{iButtonID}'");
                 dgv_Member.Rows.RemoveAt(selectedIndex);
+
+                cb_iButtonID.Items.Clear();
+
+                foreach (string row in db.TableToListOne("ibutton", "iButtonID", $"ibutton.iButtonID NOT IN (SELECT user.iButtonID FROM user WHERE Aktiv='1')"))
+                {
+                    cb_iButtonID.Items.Add(row);
+                }
             }
         }
 
@@ -232,6 +253,48 @@ namespace WinProjektlabor
 
             db.ExecuteQuery($"INSERT INTO zuweisung (iButtonID, MaschinenID, Datum) VALUES('{button}', '{mid}', '{date}');");
             dgv_Zuweisung.DataSource = db.QueryToDataTable("select zuweisung.iButtonID, user.Benutzername, zuweisung.MaschinenID, maschine.Bezeichnung from zuweisung, maschine, user WHERE user.iButtonID=zuweisung.iButtonID AND maschine.MaschinenID=zuweisung.MaschinenID");
+        }
+
+        private void btn_Memberadd_Click(object sender, EventArgs e)
+        {
+            if(tb_Benutzername.Text != "" && tb_EMail.Text != "" && tb_Nachname.Text != "" 
+                && tb_Passwort.Text != "" && tb_Vorname.Text != "")
+            {
+                string button = cb_iButtonID.SelectedItem.ToString();
+                string benutzer = tb_Benutzername.Text;
+                string email = tb_EMail.Text;
+                string nachname = tb_Nachname.Text;
+                string passwort = tb_Passwort.Text;
+                string vorname = tb_Vorname.Text;
+                string kmember = "0";
+
+                if(chkbx_Keymember.Checked)
+                {
+                    kmember = "1";
+                }
+
+                db.ExecuteQuery($"INSERT INTO user (Benutzername, EMail, Nachname, Vorname, Passwort, Keymember, iButtonID) " +
+                    $"VALUES('{benutzer}', '{email}', '{nachname}', '{vorname}', '{passwort}', '{kmember}', '{button}');");
+                dgv_Member.DataSource = db.QueryToDataTable("select UserID, Vorname, Nachname, EMail, Keymember, iButtonID from user where Aktiv='1'");
+
+                tb_Benutzername.Text = "";
+                tb_EMail.Text = "";
+                tb_Nachname.Text = "";
+                tb_Passwort.Text = "";
+                tb_Vorname.Text = "";
+                cb_iButtonID.Items.Remove(cb_iButtonID.SelectedItem);
+
+                cb_iButtonID.Items.Clear();
+
+                foreach (string row in db.TableToListOne("ibutton", "iButtonID", $"ibutton.iButtonID NOT IN (SELECT user.iButtonID FROM user WHERE Aktiv='1')"))
+                {
+                    cb_iButtonID.Items.Add(row);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte alle Felder ausfüllen!");
+            }
         }
     }
 }

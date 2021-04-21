@@ -64,6 +64,20 @@ namespace WinProjektlabor
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cb_iButtonID = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_Vorname = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_Nachname = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_EMail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_Passwort = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_Benutzername = new System.Windows.Forms.TextBox();
+            this.btn_Memberadd = new System.Windows.Forms.Button();
+            this.chkbx_Keymember = new System.Windows.Forms.CheckBox();
             this.tp_Verwaltung.SuspendLayout();
             this.tc_Verwaltung.SuspendLayout();
             this.tp_Member.SuspendLayout();
@@ -112,6 +126,20 @@ namespace WinProjektlabor
             // tp_Member
             // 
             this.tp_Member.BackColor = System.Drawing.Color.Transparent;
+            this.tp_Member.Controls.Add(this.chkbx_Keymember);
+            this.tp_Member.Controls.Add(this.btn_Memberadd);
+            this.tp_Member.Controls.Add(this.label9);
+            this.tp_Member.Controls.Add(this.tb_Passwort);
+            this.tp_Member.Controls.Add(this.label10);
+            this.tp_Member.Controls.Add(this.tb_Benutzername);
+            this.tp_Member.Controls.Add(this.label5);
+            this.tp_Member.Controls.Add(this.tb_EMail);
+            this.tp_Member.Controls.Add(this.label4);
+            this.tp_Member.Controls.Add(this.tb_Nachname);
+            this.tp_Member.Controls.Add(this.label3);
+            this.tp_Member.Controls.Add(this.tb_Vorname);
+            this.tp_Member.Controls.Add(this.cb_iButtonID);
+            this.tp_Member.Controls.Add(this.label6);
             this.tp_Member.Controls.Add(this.btn_LöschenMember);
             this.tp_Member.Controls.Add(this.dgv_Member);
             this.tp_Member.Location = new System.Drawing.Point(4, 22);
@@ -127,7 +155,7 @@ namespace WinProjektlabor
             this.btn_LöschenMember.Location = new System.Drawing.Point(13, 352);
             this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
-            this.btn_LöschenMember.Size = new System.Drawing.Size(663, 24);
+            this.btn_LöschenMember.Size = new System.Drawing.Size(586, 24);
             this.btn_LöschenMember.TabIndex = 2;
             this.btn_LöschenMember.Text = "Löschen";
             this.btn_LöschenMember.UseVisualStyleBackColor = true;
@@ -143,7 +171,7 @@ namespace WinProjektlabor
             this.dgv_Member.RowHeadersWidth = 51;
             this.dgv_Member.RowTemplate.Height = 24;
             this.dgv_Member.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Member.Size = new System.Drawing.Size(663, 332);
+            this.dgv_Member.Size = new System.Drawing.Size(586, 332);
             this.dgv_Member.TabIndex = 1;
             // 
             // tb_Zuweisung
@@ -474,6 +502,125 @@ namespace WinProjektlabor
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // cb_iButtonID
+            // 
+            this.cb_iButtonID.FormattingEnabled = true;
+            this.cb_iButtonID.Location = new System.Drawing.Point(631, 270);
+            this.cb_iButtonID.Name = "cb_iButtonID";
+            this.cb_iButtonID.Size = new System.Drawing.Size(121, 21);
+            this.cb_iButtonID.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(628, 254);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "iButtonID";
+            // 
+            // tb_Vorname
+            // 
+            this.tb_Vorname.Location = new System.Drawing.Point(631, 30);
+            this.tb_Vorname.Name = "tb_Vorname";
+            this.tb_Vorname.Size = new System.Drawing.Size(121, 20);
+            this.tb_Vorname.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(628, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Vorname";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(628, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Nachname";
+            // 
+            // tb_Nachname
+            // 
+            this.tb_Nachname.Location = new System.Drawing.Point(631, 69);
+            this.tb_Nachname.Name = "tb_Nachname";
+            this.tb_Nachname.Size = new System.Drawing.Size(121, 20);
+            this.tb_Nachname.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(628, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "E-Mail";
+            // 
+            // tb_EMail
+            // 
+            this.tb_EMail.Location = new System.Drawing.Point(631, 110);
+            this.tb_EMail.Name = "tb_EMail";
+            this.tb_EMail.Size = new System.Drawing.Size(121, 20);
+            this.tb_EMail.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(628, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Passwort";
+            // 
+            // tb_Passwort
+            // 
+            this.tb_Passwort.Location = new System.Drawing.Point(631, 231);
+            this.tb_Passwort.Name = "tb_Passwort";
+            this.tb_Passwort.PasswordChar = '*';
+            this.tb_Passwort.Size = new System.Drawing.Size(121, 20);
+            this.tb_Passwort.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(628, 174);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Benutzername";
+            // 
+            // tb_Benutzername
+            // 
+            this.tb_Benutzername.Location = new System.Drawing.Point(631, 190);
+            this.tb_Benutzername.Name = "tb_Benutzername";
+            this.tb_Benutzername.Size = new System.Drawing.Size(121, 20);
+            this.tb_Benutzername.TabIndex = 19;
+            // 
+            // btn_Memberadd
+            // 
+            this.btn_Memberadd.Location = new System.Drawing.Point(631, 352);
+            this.btn_Memberadd.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Memberadd.Name = "btn_Memberadd";
+            this.btn_Memberadd.Size = new System.Drawing.Size(121, 24);
+            this.btn_Memberadd.TabIndex = 25;
+            this.btn_Memberadd.Text = "Hinzufügen";
+            this.btn_Memberadd.UseVisualStyleBackColor = true;
+            this.btn_Memberadd.Click += new System.EventHandler(this.btn_Memberadd_Click);
+            // 
+            // chkbx_Keymember
+            // 
+            this.chkbx_Keymember.AutoSize = true;
+            this.chkbx_Keymember.Location = new System.Drawing.Point(631, 145);
+            this.chkbx_Keymember.Name = "chkbx_Keymember";
+            this.chkbx_Keymember.Size = new System.Drawing.Size(81, 17);
+            this.chkbx_Keymember.TabIndex = 26;
+            this.chkbx_Keymember.Text = "Keymember";
+            this.chkbx_Keymember.UseVisualStyleBackColor = true;
+            // 
             // Panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +637,7 @@ namespace WinProjektlabor
             this.tp_Verwaltung.ResumeLayout(false);
             this.tc_Verwaltung.ResumeLayout(false);
             this.tp_Member.ResumeLayout(false);
+            this.tp_Member.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Member)).EndInit();
             this.tb_Zuweisung.ResumeLayout(false);
             this.tb_Zuweisung.PerformLayout();
@@ -549,5 +697,19 @@ namespace WinProjektlabor
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbx_Zuweisungmaschine;
         private System.Windows.Forms.ComboBox cmbx_Zuweisunguser;
+        private System.Windows.Forms.CheckBox chkbx_Keymember;
+        private System.Windows.Forms.Button btn_Memberadd;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_Passwort;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tb_Benutzername;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_EMail;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_Nachname;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_Vorname;
+        private System.Windows.Forms.ComboBox cb_iButtonID;
+        private System.Windows.Forms.Label label6;
     }
 }
