@@ -70,8 +70,10 @@ namespace WinProjektlabor
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
         {
-            string driveName = ((DriveInfoEventArgs)e).DriveName;
-            Application.Exit();
+            if (!(tc_Verwaltung.SelectedTab == tc_Verwaltung.TabPages["tp_USB"])) {
+                string driveName = ((DriveInfoEventArgs)e).DriveName;
+                Application.Exit();
+            }
         }
 
 
