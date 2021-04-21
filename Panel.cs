@@ -58,29 +58,19 @@ namespace WinProjektlabor
 
             iButtonID = drive.Start(driveName);
 
-            bool result = db.QueryToBool($"select * from user where iButtonID = '{iButtonID}'");
+            this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
+            this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
 
-            //// Ausgelesene iButtonID abgleichen ob diese existiert.
-            //bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
+            bool USBhaveUser = db.QueryToBool($"select * from user where iButtonID = '{iButtonID}' and Aktiv='1'");
+            if (USBhaveUser)
+            {
+                this.Invoke(new Action(() => pn_YesUSB.Visible = true));
 
-            //// Wenn die iButtonID existiert und die Config existiert ändert sich der Status
-            //if (iButtonID != "0" && result)
-            //{
-            //    this.Invoke(new Action(() => pn_YesUSB.Visible = true));
-            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
-            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
+            }
 
-            //}
-            //if (result)
-            //{
-            //    db.QueryToStringNew("select vorname, nachname from user where iBUttonID = '{iButtonID}'");
-            //    lbl_GehörtUSB.Text =
-            //}
-            //else
-            //{
-            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Kein valider USB-Stick gefunden."));
-            //    this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
-            //}
+            
+            
+           
         }
 
 
@@ -89,6 +79,9 @@ namespace WinProjektlabor
             if (M_ID != null && M_ID != "Verwaltung") {
                 Application.Exit();
             }
+            this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Bitte USB Stick einstecken!"));
+            this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
+            this.Invoke(new Action(() => pn_YesUSB.Visible = false));
         }
 
 
