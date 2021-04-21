@@ -115,7 +115,6 @@ namespace WinProjektlabor
             this.MaximizeBox = false;
             this.Name = "AdminLogin";
             this.Text = "Admin";
-            this.Load += new System.EventHandler(this.AdminLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

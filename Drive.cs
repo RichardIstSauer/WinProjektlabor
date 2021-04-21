@@ -33,22 +33,26 @@ namespace WinProjektlabor
         }
 
 
-        private string RandomString(Int64 Length)
+        public string RandomString(Int64 Length)
         {
             System.Random rnd = new System.Random();
             StringBuilder Temp = new StringBuilder();
             for (Int64 i = 0; i < Length; i++)
             {
-                Temp.Append(Convert.ToChar(((byte)rnd.Next(254))).ToString());
+                Temp.Append(Convert.ToChar(((byte)rnd.Next(48,57))).ToString());
+                Temp.Append(Convert.ToChar(((byte)rnd.Next(65,90))).ToString());
             }
             return Temp.ToString();
         }
 
-        public void New(string drive)
+        public string New(string drive)
         {
-            using (StreamWriter sw = new StreamWriter(drive + "\\config.txt")) 
+            string iButtonID = RandomString(8);
+            using (StreamWriter sw = new StreamWriter(drive + "\\config.txt"))
             {
-                sw.WriteLine(RandomString())
+                
+                sw.WriteLine(iButtonID);
+                return iButtonID;
             }
         }
     }

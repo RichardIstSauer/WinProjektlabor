@@ -31,6 +31,7 @@ namespace WinProjektlabor
 
         private void Panel_Load(object sender, EventArgs e)
         {
+            
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
@@ -77,6 +78,10 @@ namespace WinProjektlabor
                 this.Invoke(new Action(() =>  lbl_UserUSB.Text = $"User: {user}"));
 
             }
+            else
+            {
+                this.Invoke(new Action(() => pn_USBNoUser.Visible = true));
+            }
             if (!ButtonIDexists)
             {
                 this.Invoke(new Action(() => pn_NoUSB.Visible = true));
@@ -94,6 +99,7 @@ namespace WinProjektlabor
             this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
             this.Invoke(new Action(() => pn_YesUSB.Visible = false));
             this.Invoke(new Action(() => pn_NoUSB.Visible = false));
+            this.Invoke(new Action(() => pn_USBNoUser.Visible = false));
         }
 
 
@@ -283,6 +289,14 @@ namespace WinProjektlabor
             {
                 MessageBox.Show("Bitte alle Felder ausfüllen!","Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btn_HinzufügenUSB_Click(object sender, EventArgs e)
+        {
+            string iButtonID = drive.New(driveName);
+            lbl_USBInfo.Text = $"USB Stick erstellt iButtonID:{iButtonID}";
+            db.ExecuteQuery($"insert into ibutton values ('{iButtonID}','Stick')");
+            dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
         }
     }
 }
