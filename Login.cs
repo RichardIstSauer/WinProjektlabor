@@ -45,8 +45,10 @@ namespace WinProjektlabor
             bool result = db.QueryToBool($"SELECT * from ibutton WHERE iButtonID = '{iButtonID}'");
 
             // Wenn die iButtonID existiert und die Config existiert wird der Login freigegeben
-            if (iButtonID != "0" && result) {
-                this.Invoke(new Action(() => {
+            if (iButtonID != "0" && result)
+            {
+                this.Invoke(new Action(() =>
+                {
 
                     cmbx_LoginMaschine.Items.Clear();
                     Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
@@ -69,7 +71,8 @@ namespace WinProjektlabor
             }
             else
             {
-                this.Invoke(new Action(() => {
+                this.Invoke(new Action(() =>
+                {
                     lbl_StatusNachricht.Text = "Kein valider USB-Stick gefunden.";
                     lbl_StatusNachricht.ForeColor = Color.Red;
                 }));
@@ -80,7 +83,8 @@ namespace WinProjektlabor
         {
             driveName = ((DriveInfoEventArgs)e).DriveName;
             //MessageBox.Show($"Drive {driveName} removed");
-            this.Invoke(new Action(() => {
+            this.Invoke(new Action(() =>
+            {
                 lbl_Maschinenauswahl.Visible = false;
                 cmbx_LoginMaschine.Visible = false;
                 lbl_Passwort.Visible = false;
@@ -99,7 +103,7 @@ namespace WinProjektlabor
 
             bool result = db.QueryToBool($"SELECT * from user WHERE Passwort = '{EnteredPassword}' AND iButtonID = '{iButtonID}'");
 
-            if(result)
+            if (result)
             {
                 this.Hide();
                 Panel panel = new Panel();
@@ -108,32 +112,33 @@ namespace WinProjektlabor
                 panel.iButtonID = iButtonID;
                 panel.Show();
 
-               
+
             }
             else
             {
                 txtbx_Passwort.Text = "";
-                MessageBox.Show("Passwort falsch!","Warnung",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Passwort falsch!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        
+
         //AdminLogin Panel
         private void btn_Admin_Click(object sender, EventArgs e)
         {
             this.Hide();
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
-            
+
 
         }
 
         //Erscheinen des USB Statuses
         private void cmbx_LoginMaschine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbx_LoginMaschine.SelectedItem != "Verwaltung") {
+            if (cmbx_LoginMaschine.SelectedItem != "Verwaltung")
+            {
                 M_ID = db.QueryToStringNew($"select MaschinenID from maschine where Bezeichnung = '{cmbx_LoginMaschine.SelectedItem}'");
-                if(M_ID != "")
+                if (M_ID != "")
                 {
                     lbl_Passwort.Visible = true;
                     txtbx_Passwort.Visible = true;

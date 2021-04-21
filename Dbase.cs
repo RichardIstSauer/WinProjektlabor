@@ -28,7 +28,7 @@ namespace WinProjektlabor
         private string connString = string.Empty;
         private MySqlConnection connection = null;
         private MySqlCommand command = null;
- 
+
 
         #region Konstruktor
         /// <summary>
@@ -407,7 +407,8 @@ namespace WinProjektlabor
             string query = "";
             List<string> listData = new List<string>();
 
-            if (_where != "") {
+            if (_where != "")
+            {
                 query = $"SELECT {_columns} FROM {_table} WHERE {_where}";
             }
             else
@@ -529,7 +530,7 @@ namespace WinProjektlabor
                 connection.Open();
                 command = new MySqlCommand(_query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read()) 
+                while (reader.Read())
                 {
                     result = reader[0].ToString();
                 }
@@ -546,7 +547,7 @@ namespace WinProjektlabor
             }
         }
 
-        
+
         #endregion
 
         /// <summary>
