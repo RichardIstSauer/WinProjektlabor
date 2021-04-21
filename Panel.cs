@@ -18,7 +18,7 @@ namespace WinProjektlabor
         UsbDetect usbDetect;
         public string M_ID;
         public string iButtonID;
-        string Keymember;
+        public string Keymember;
         string start = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
         Dbase db = new Dbase("projektlabor");
 
@@ -32,14 +32,19 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
-            Keymember = db.QueryToStringNew($"SELECT Keymember from user WHERE iButtonID='{iButtonID}'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
             pb_Maschine.Image = db.loadImage(M_ID);
 
             if (Keymember == "0")
             {
                 tc_Panel.TabPages.RemoveByKey("tp_Verwaltung");
-
+            }
+            else
+            {
+                if (M_ID == "Verwaltung" || M_ID == null)
+                {
+                    tc_Panel.TabPages.RemoveByKey("tp_Maschine");
+                }
             }
         }
 
@@ -70,8 +75,7 @@ namespace WinProjektlabor
 
         private void UsbDetect_DriveRemoved(object sender, EventArgs e)
         {
-            if (!(tc_Verwaltung.SelectedTab == tc_Verwaltung.TabPages["tp_USB"])) {
-                string driveName = ((DriveInfoEventArgs)e).DriveName;
+            if (M_ID != null && M_ID != "Verwaltung") {
                 Application.Exit();
             }
         }
@@ -80,7 +84,7 @@ namespace WinProjektlabor
 
         private void Panel_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (M_ID != null)
+            if (M_ID != null && M_ID != "Verwaltung")
             {
                 string ende = DateTime.Now.ToString("yyyy-MM-dd H:mm:ss");
                 db.ExecuteQuery($"INSERT INTO log (iButtonID, MaschinenID, Starttime, Endtime) VALUES ('{iButtonID}', '{M_ID}', '{start}', '{ende}');");

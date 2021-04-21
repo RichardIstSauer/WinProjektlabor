@@ -375,10 +375,18 @@ namespace WinProjektlabor
         /// <param name="_table">Name der auszugebenden Tabelle</param>
         /// <param name="_columns">Namen der auszugebenden Spalten als String-Array</param>
         /// <returns>Rückgabe der befüllten Liste</returns>
-        public List<string> TableToListOne(string _table, string _columns)
+        public List<string> TableToListOne(string _table, string _columns, string _where)
         {
+            string query = "";
             List<string> listData = new List<string>();
-            string query = $"SELECT {_columns} FROM {_table}";
+
+            if (_where != "") {
+                query = $"SELECT {_columns} FROM {_table} WHERE {_where}";
+            }
+            else
+            {
+                query = $"SELECT {_columns} FROM {_table}";
+            }
             try
             {
                 connection.Open();
