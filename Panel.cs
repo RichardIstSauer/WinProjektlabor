@@ -106,10 +106,24 @@ namespace WinProjektlabor
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
+            dgv_Zuweisung.DataSource = db.QueryToDataTable("select zuweisung.iButtonID, user.Benutzername, zuweisung.MaschinenID, maschine.Bezeichnung from zuweisung, maschine, user WHERE user.iButtonID=zuweisung.iButtonID AND maschine.MaschinenID=zuweisung.MaschinenID");
             dgv_Member.DataSource = db.QueryToDataTable("select UserID, Vorname, Nachname, EMail, Keymember, iButtonID from user where Aktiv='1'");
             dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
             dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
 
+            cmbx_Zuweisungmaschine.Items.Clear();
+
+            foreach (string row in db.TableToListOne("maschine", "Bezeichnung", $"Aktiv='1'"))
+            {
+                cmbx_Zuweisungmaschine.Items.Add(row);
+            }
+
+            cmbx_Zuweisunguser.Items.Clear();
+
+            foreach (string row in db.TableToListOne("user", "Benutzername", $"Aktiv='1'"))
+            {
+                cmbx_Zuweisunguser.Items.Add(row);
+            }
         }
 
         private void btn_LöschenMaschinen_Click(object sender, EventArgs e)
@@ -199,6 +213,30 @@ namespace WinProjektlabor
                 db.ExecuteQuery($"update user set Aktiv='0' where UserID='{rowID}'");
                 dgv_Member.Rows.RemoveAt(selectedIndex);
             }
+        }
+
+        private void btnLoeschenZuweisung_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                int selectedIndex = dgv_Zuweisung.SelectedRows[0].Index;
+                string rowID = dgv_Zuweisung[0, selectedIndex].Value.ToString();
+                string mid = dgv_Zuweisung[2, selectedIndex].Value.ToString();
+
+                db.ExecuteQuery($"DELETE FROM zuweisung where iButtonID='{rowID}' AND MaschinenID='{mid}'");
+                dgv_Zuweisung.Rows.RemoveAt(selectedIndex);
+            }
+        }
+
+        private void btn_Zuweisungneu_Click(object sender, EventArgs e)
+        {
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string button = db.QueryToStringNew($"SELECT iButtonID from user WHERE Benutzername='{cmbx_Zuweisunguser.SelectedItem}'");
+            string mid = db.QueryToStringNew($"SELECT MaschinenID from maschine WHERE Bezeichnung='{cmbx_Zuweisungmaschine.SelectedItem}'");
+
+
+            db.ExecuteQuery($"INSERT INTO zuweisung (iButtonID, MaschinenID, Datum) VALUES('{button}', '{mid}', '{date}');");
+            dgv_Zuweisung.DataSource = db.QueryToDataTable("select zuweisung.iButtonID, user.Benutzername, zuweisung.MaschinenID, maschine.Bezeichnung from zuweisung, maschine, user WHERE user.iButtonID=zuweisung.iButtonID AND maschine.MaschinenID=zuweisung.MaschinenID");
         }
     }
 }
