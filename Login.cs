@@ -56,7 +56,7 @@ namespace WinProjektlabor
                         cmbx_LoginMaschine.SelectedItem = "Verwaltung";
                     }
 
-                    foreach (string row in db.TableToListOne("maschine, zuweisung", "Bezeichnung", $"zuweisung.MaschinenID=maschine.MaschinenID AND iButtonID = '{iButtonID}'"))
+                    foreach (string row in db.TableToListOne("maschine, zuweisung", "Bezeichnung", $"zuweisung.MaschinenID=maschine.MaschinenID AND iButtonID = '{iButtonID}' AND Aktiv='1'"))
                     {
                         cmbx_LoginMaschine.Items.Add(row);
                     }
