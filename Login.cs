@@ -30,6 +30,7 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            lbl_Status.Select();
         }
 
 

@@ -33,6 +33,7 @@ namespace WinProjektlabor
             usbDetect = new UsbDetect();
             usbDetect.DriveDetected += UsbDetect_DriveDetected;
             usbDetect.DriveRemoved += UsbDetect_DriveRemoved;
+            dgv_Member.DataSource = db.QueryToDataTable("select UserID, Vorname, Nachname, EMail, Keymember, iButtonID from user where Aktiv='1'");
             lbl_Maschine.Text = db.QueryToStringNew($"SELECT Bezeichnung from maschine WHERE MaschinenID='{M_ID}'");
             pb_Maschine.Image = db.loadImage(M_ID);
 
@@ -104,6 +105,7 @@ namespace WinProjektlabor
         private void tc_Verwaltung_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgv_USB.DataSource = db.QueryToDataTable("select * from ibutton");
+            dgv_Member.DataSource = db.QueryToDataTable("select UserID, Vorname, Nachname, EMail, Keymember, iButtonID from user where Aktiv='1'");
             dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
             dgv_Log.DataSource = db.QueryToDataTable("select LogID, Vorname, Nachname, Bezeichnung, Starttime, Endtime from log, user, maschine where log.iButtonID=user.iButtonID and log.MaschinenID=maschine.MaschinenID;");
 
@@ -154,6 +156,27 @@ namespace WinProjektlabor
             else
             {
                 btn_HinzufügenMaschinen_Click(sender, e);
+            }
+        }
+
+        //Mit Enter Maschine hinzufügen
+        private void txtbx_BezeichnungMaschinen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btn_HinzufügenMaschinen_Click(sender, e);
+            }
+        }
+
+        private void btn_LöschenMember_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Wirklich Löschen", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                int selectedIndex = dgv_Member.SelectedRows[0].Index;
+                string rowID = dgv_Member[0, selectedIndex].Value.ToString();
+
+                db.ExecuteQuery($"update user set Aktiv='0' where UserID='{rowID}'");
+                dgv_Member.Rows.RemoveAt(selectedIndex);
             }
         }
     }
