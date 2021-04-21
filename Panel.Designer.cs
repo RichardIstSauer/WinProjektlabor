@@ -53,6 +53,7 @@ namespace WinProjektlabor
             this.pb_Maschine = new System.Windows.Forms.PictureBox();
             this.lbl_Maschine = new System.Windows.Forms.Label();
             this.tc_Panel = new System.Windows.Forms.TabControl();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dgv_Member = new System.Windows.Forms.DataGridView();
             this.btn_LöschenMember = new System.Windows.Forms.Button();
             this.tp_Verwaltung.SuspendLayout();
@@ -90,10 +91,10 @@ namespace WinProjektlabor
             this.tc_Verwaltung.Controls.Add(this.tp_Maschinen);
             this.tc_Verwaltung.Controls.Add(this.tp_Log);
             this.tc_Verwaltung.Location = new System.Drawing.Point(0, 2);
-            this.tc_Verwaltung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tc_Verwaltung.Margin = new System.Windows.Forms.Padding(2);
             this.tc_Verwaltung.Name = "tc_Verwaltung";
             this.tc_Verwaltung.SelectedIndex = 0;
-            this.tc_Verwaltung.Size = new System.Drawing.Size(1063, 526);
+            this.tc_Verwaltung.Size = new System.Drawing.Size(797, 427);
             this.tc_Verwaltung.TabIndex = 0;
             this.tc_Verwaltung.SelectedIndexChanged += new System.EventHandler(this.tc_Verwaltung_SelectedIndexChanged);
             // 
@@ -105,8 +106,8 @@ namespace WinProjektlabor
             this.tp_Member.Location = new System.Drawing.Point(4, 25);
             this.tp_Member.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tp_Member.Name = "tp_Member";
-            this.tp_Member.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_Member.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Member.Padding = new System.Windows.Forms.Padding(2);
+            this.tp_Member.Size = new System.Drawing.Size(789, 401);
             this.tp_Member.TabIndex = 0;
             this.tp_Member.Text = "Member";
             // 
@@ -117,11 +118,11 @@ namespace WinProjektlabor
             this.tp_USB.Controls.Add(this.lbl_StatusUSB);
             this.tp_USB.Controls.Add(this.btn_LöschenUSB);
             this.tp_USB.Controls.Add(this.dgv_USB);
-            this.tp_USB.Location = new System.Drawing.Point(4, 25);
-            this.tp_USB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_USB.Location = new System.Drawing.Point(4, 22);
+            this.tp_USB.Margin = new System.Windows.Forms.Padding(2);
             this.tp_USB.Name = "tp_USB";
-            this.tp_USB.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tp_USB.Size = new System.Drawing.Size(1055, 497);
+            this.tp_USB.Padding = new System.Windows.Forms.Padding(2);
+            this.tp_USB.Size = new System.Drawing.Size(789, 401);
             this.tp_USB.TabIndex = 1;
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
@@ -134,27 +135,25 @@ namespace WinProjektlabor
             this.pn_YesUSB.Location = new System.Drawing.Point(450, 89);
             this.pn_YesUSB.Margin = new System.Windows.Forms.Padding(4);
             this.pn_YesUSB.Name = "pn_YesUSB";
-            this.pn_YesUSB.Size = new System.Drawing.Size(267, 123);
+            this.pn_YesUSB.Size = new System.Drawing.Size(200, 100);
             this.pn_YesUSB.TabIndex = 8;
             this.pn_YesUSB.Visible = false;
             // 
             // lbl_GehörtUSB
             // 
             this.lbl_GehörtUSB.AutoSize = true;
-            this.lbl_GehörtUSB.Location = new System.Drawing.Point(4, 12);
-            this.lbl_GehörtUSB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_GehörtUSB.Location = new System.Drawing.Point(3, 10);
             this.lbl_GehörtUSB.Name = "lbl_GehörtUSB";
-            this.lbl_GehörtUSB.Size = new System.Drawing.Size(115, 17);
+            this.lbl_GehörtUSB.Size = new System.Drawing.Size(89, 13);
             this.lbl_GehörtUSB.TabIndex = 8;
             this.lbl_GehörtUSB.Text = "USB Stick gehört";
             // 
             // lbl_UserUSB
             // 
             this.lbl_UserUSB.AutoSize = true;
-            this.lbl_UserUSB.Location = new System.Drawing.Point(4, 43);
-            this.lbl_UserUSB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_UserUSB.Location = new System.Drawing.Point(3, 35);
             this.lbl_UserUSB.Name = "lbl_UserUSB";
-            this.lbl_UserUSB.Size = new System.Drawing.Size(42, 17);
+            this.lbl_UserUSB.Size = new System.Drawing.Size(32, 13);
             this.lbl_UserUSB.TabIndex = 6;
             this.lbl_UserUSB.Text = "User:";
             // 
@@ -163,7 +162,7 @@ namespace WinProjektlabor
             this.btn_LoeschenUSB.Location = new System.Drawing.Point(163, 91);
             this.btn_LoeschenUSB.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LoeschenUSB.Name = "btn_LoeschenUSB";
-            this.btn_LoeschenUSB.Size = new System.Drawing.Size(100, 28);
+            this.btn_LoeschenUSB.Size = new System.Drawing.Size(75, 23);
             this.btn_LoeschenUSB.TabIndex = 7;
             this.btn_LoeschenUSB.Text = "Löschen";
             this.btn_LoeschenUSB.UseVisualStyleBackColor = true;
@@ -173,9 +172,10 @@ namespace WinProjektlabor
             this.lbl_StatusNachrichtUSB.AutoSize = true;
             this.lbl_StatusNachrichtUSB.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_StatusNachrichtUSB.ForeColor = System.Drawing.Color.Red;
-            this.lbl_StatusNachrichtUSB.Location = new System.Drawing.Point(447, 48);
+            this.lbl_StatusNachrichtUSB.Location = new System.Drawing.Point(335, 39);
+            this.lbl_StatusNachrichtUSB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_StatusNachrichtUSB.Name = "lbl_StatusNachrichtUSB";
-            this.lbl_StatusNachrichtUSB.Size = new System.Drawing.Size(198, 16);
+            this.lbl_StatusNachrichtUSB.Size = new System.Drawing.Size(154, 14);
             this.lbl_StatusNachrichtUSB.TabIndex = 5;
             this.lbl_StatusNachrichtUSB.Text = "Bitte USB Stick einstecken!";
             // 
@@ -183,9 +183,10 @@ namespace WinProjektlabor
             // 
             this.lbl_StatusUSB.AutoSize = true;
             this.lbl_StatusUSB.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_StatusUSB.Location = new System.Drawing.Point(447, 26);
+            this.lbl_StatusUSB.Location = new System.Drawing.Point(335, 21);
+            this.lbl_StatusUSB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_StatusUSB.Name = "lbl_StatusUSB";
-            this.lbl_StatusUSB.Size = new System.Drawing.Size(121, 24);
+            this.lbl_StatusUSB.Size = new System.Drawing.Size(93, 18);
             this.lbl_StatusUSB.TabIndex = 4;
             this.lbl_StatusUSB.Text = "USB Status:";
             // 
@@ -194,7 +195,7 @@ namespace WinProjektlabor
             this.btn_LöschenUSB.Location = new System.Drawing.Point(22, 433);
             this.btn_LöschenUSB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_LöschenUSB.Name = "btn_LöschenUSB";
-            this.btn_LöschenUSB.Size = new System.Drawing.Size(364, 30);
+            this.btn_LöschenUSB.Size = new System.Drawing.Size(273, 24);
             this.btn_LöschenUSB.TabIndex = 3;
             this.btn_LöschenUSB.Text = "Löschen";
             this.btn_LöschenUSB.UseVisualStyleBackColor = true;
@@ -211,7 +212,7 @@ namespace WinProjektlabor
             this.dgv_USB.RowHeadersWidth = 51;
             this.dgv_USB.RowTemplate.Height = 24;
             this.dgv_USB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_USB.Size = new System.Drawing.Size(364, 382);
+            this.dgv_USB.Size = new System.Drawing.Size(273, 310);
             this.dgv_USB.TabIndex = 2;
             // 
             // tp_Maschinen
@@ -221,19 +222,20 @@ namespace WinProjektlabor
             this.tp_Maschinen.Controls.Add(this.txtbx_BezeichnungMaschinen);
             this.tp_Maschinen.Controls.Add(this.btn_LöschenMaschinen);
             this.tp_Maschinen.Controls.Add(this.dgv_Maschinen);
-            this.tp_Maschinen.Location = new System.Drawing.Point(4, 25);
-            this.tp_Maschinen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_Maschinen.Location = new System.Drawing.Point(4, 22);
+            this.tp_Maschinen.Margin = new System.Windows.Forms.Padding(2);
             this.tp_Maschinen.Name = "tp_Maschinen";
-            this.tp_Maschinen.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Maschinen.Size = new System.Drawing.Size(789, 401);
             this.tp_Maschinen.TabIndex = 3;
             this.tp_Maschinen.Text = "Maschinen";
             this.tp_Maschinen.UseVisualStyleBackColor = true;
             // 
             // btn_HinzufügenMaschinen
             // 
-            this.btn_HinzufügenMaschinen.Location = new System.Drawing.Point(508, 102);
+            this.btn_HinzufügenMaschinen.Location = new System.Drawing.Point(381, 77);
+            this.btn_HinzufügenMaschinen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_HinzufügenMaschinen.Name = "btn_HinzufügenMaschinen";
-            this.btn_HinzufügenMaschinen.Size = new System.Drawing.Size(125, 30);
+            this.btn_HinzufügenMaschinen.Size = new System.Drawing.Size(94, 24);
             this.btn_HinzufügenMaschinen.TabIndex = 5;
             this.btn_HinzufügenMaschinen.Text = "Hinzufügen";
             this.btn_HinzufügenMaschinen.UseVisualStyleBackColor = true;
@@ -242,26 +244,27 @@ namespace WinProjektlabor
             // lbl_BezeichnungMaschinen
             // 
             this.lbl_BezeichnungMaschinen.AutoSize = true;
-            this.lbl_BezeichnungMaschinen.Location = new System.Drawing.Point(522, 26);
+            this.lbl_BezeichnungMaschinen.Location = new System.Drawing.Point(392, 21);
+            this.lbl_BezeichnungMaschinen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_BezeichnungMaschinen.Name = "lbl_BezeichnungMaschinen";
-            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(90, 17);
+            this.lbl_BezeichnungMaschinen.Size = new System.Drawing.Size(69, 13);
             this.lbl_BezeichnungMaschinen.TabIndex = 4;
             this.lbl_BezeichnungMaschinen.Text = "Bezeichnung";
             // 
             // txtbx_BezeichnungMaschinen
             // 
-            this.txtbx_BezeichnungMaschinen.Location = new System.Drawing.Point(508, 65);
+            this.txtbx_BezeichnungMaschinen.Location = new System.Drawing.Point(381, 53);
+            this.txtbx_BezeichnungMaschinen.Margin = new System.Windows.Forms.Padding(2);
             this.txtbx_BezeichnungMaschinen.Name = "txtbx_BezeichnungMaschinen";
-            this.txtbx_BezeichnungMaschinen.Size = new System.Drawing.Size(125, 22);
+            this.txtbx_BezeichnungMaschinen.Size = new System.Drawing.Size(95, 20);
             this.txtbx_BezeichnungMaschinen.TabIndex = 3;
-            this.txtbx_BezeichnungMaschinen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbx_BezeichnungMaschinen_KeyDown);
             // 
             // btn_LöschenMaschinen
             // 
-            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(22, 433);
-            this.btn_LöschenMaschinen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(29, 350);
+            this.btn_LöschenMaschinen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LöschenMaschinen.Name = "btn_LöschenMaschinen";
-            this.btn_LöschenMaschinen.Size = new System.Drawing.Size(364, 30);
+            this.btn_LöschenMaschinen.Size = new System.Drawing.Size(273, 24);
             this.btn_LöschenMaschinen.TabIndex = 2;
             this.btn_LöschenMaschinen.Text = "Löschen";
             this.btn_LöschenMaschinen.UseVisualStyleBackColor = true;
@@ -270,24 +273,24 @@ namespace WinProjektlabor
             // dgv_Maschinen
             // 
             this.dgv_Maschinen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Maschinen.Location = new System.Drawing.Point(22, 26);
-            this.dgv_Maschinen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_Maschinen.Location = new System.Drawing.Point(29, 21);
+            this.dgv_Maschinen.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_Maschinen.MultiSelect = false;
             this.dgv_Maschinen.Name = "dgv_Maschinen";
             this.dgv_Maschinen.ReadOnly = true;
             this.dgv_Maschinen.RowHeadersWidth = 51;
             this.dgv_Maschinen.RowTemplate.Height = 24;
             this.dgv_Maschinen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Maschinen.Size = new System.Drawing.Size(364, 382);
+            this.dgv_Maschinen.Size = new System.Drawing.Size(273, 310);
             this.dgv_Maschinen.TabIndex = 1;
             // 
             // tp_Log
             // 
             this.tp_Log.Controls.Add(this.dgv_Log);
-            this.tp_Log.Location = new System.Drawing.Point(4, 25);
-            this.tp_Log.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tp_Log.Location = new System.Drawing.Point(4, 22);
+            this.tp_Log.Margin = new System.Windows.Forms.Padding(2);
             this.tp_Log.Name = "tp_Log";
-            this.tp_Log.Size = new System.Drawing.Size(1055, 497);
+            this.tp_Log.Size = new System.Drawing.Size(789, 401);
             this.tp_Log.TabIndex = 2;
             this.tp_Log.Text = "Log";
             this.tp_Log.UseVisualStyleBackColor = true;
@@ -302,28 +305,26 @@ namespace WinProjektlabor
             this.dgv_Log.RowHeadersWidth = 51;
             this.dgv_Log.RowTemplate.Height = 24;
             this.dgv_Log.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Log.Size = new System.Drawing.Size(932, 444);
+            this.dgv_Log.Size = new System.Drawing.Size(699, 361);
             this.dgv_Log.TabIndex = 0;
             // 
             // tp_Maschine
             // 
             this.tp_Maschine.Controls.Add(this.pb_Maschine);
             this.tp_Maschine.Controls.Add(this.lbl_Maschine);
-            this.tp_Maschine.Location = new System.Drawing.Point(4, 25);
-            this.tp_Maschine.Margin = new System.Windows.Forms.Padding(4);
+            this.tp_Maschine.Location = new System.Drawing.Point(4, 22);
             this.tp_Maschine.Name = "tp_Maschine";
-            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(4);
-            this.tp_Maschine.Size = new System.Drawing.Size(1059, 525);
+            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Maschine.Size = new System.Drawing.Size(792, 424);
             this.tp_Maschine.TabIndex = 0;
             this.tp_Maschine.Text = "Maschine";
             this.tp_Maschine.UseVisualStyleBackColor = true;
             // 
             // pb_Maschine
             // 
-            this.pb_Maschine.Location = new System.Drawing.Point(15, 36);
-            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(4);
+            this.pb_Maschine.Location = new System.Drawing.Point(11, 29);
             this.pb_Maschine.Name = "pb_Maschine";
-            this.pb_Maschine.Size = new System.Drawing.Size(200, 185);
+            this.pb_Maschine.Size = new System.Drawing.Size(150, 150);
             this.pb_Maschine.TabIndex = 1;
             this.pb_Maschine.TabStop = false;
             // 
@@ -331,10 +332,9 @@ namespace WinProjektlabor
             // 
             this.lbl_Maschine.AutoSize = true;
             this.lbl_Maschine.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Maschine.Location = new System.Drawing.Point(11, 10);
-            this.lbl_Maschine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Maschine.Location = new System.Drawing.Point(8, 8);
             this.lbl_Maschine.Name = "lbl_Maschine";
-            this.lbl_Maschine.Size = new System.Drawing.Size(97, 24);
+            this.lbl_Maschine.Size = new System.Drawing.Size(77, 18);
             this.lbl_Maschine.TabIndex = 0;
             this.lbl_Maschine.Text = "Maschine";
             // 
@@ -346,7 +346,7 @@ namespace WinProjektlabor
             this.tc_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.tc_Panel.Name = "tc_Panel";
             this.tc_Panel.SelectedIndex = 0;
-            this.tc_Panel.Size = new System.Drawing.Size(1067, 554);
+            this.tc_Panel.Size = new System.Drawing.Size(800, 450);
             this.tc_Panel.TabIndex = 0;
             // 
             // dgv_Member
@@ -364,6 +364,7 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMember
             // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             this.btn_LöschenMember.Location = new System.Drawing.Point(22, 433);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
             this.btn_LöschenMember.Size = new System.Drawing.Size(860, 30);
@@ -374,9 +375,9 @@ namespace WinProjektlabor
             // 
             // Panel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tc_Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -435,5 +436,6 @@ namespace WinProjektlabor
         private System.Windows.Forms.TextBox txtbx_BezeichnungMaschinen;
         private System.Windows.Forms.DataGridView dgv_Member;
         private System.Windows.Forms.Button btn_LöschenMember;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

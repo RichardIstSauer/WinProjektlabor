@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -145,17 +146,37 @@ namespace WinProjektlabor
 
         private void btn_HinzufügenMaschinen_Click(object sender, EventArgs e)
         {
-            string MaschinenID = $"pl{random.Next(5, 200)}";
-            bool result = db.QueryToBool($"select * from maschine where MaschinenID='{MaschinenID}'");
-            if (!result)
+            this.openFileDialog1.Filter = "Images (*.JPG;*.GIF,*.PNG)|*.JPG;*.GIF;*.PNG;";
+
+            this.openFileDialog1.Multiselect = false;
+            this.openFileDialog1.Title = "Bild auswählen";
+
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                db.ExecuteQuery($"Insert into maschine (MaschinenID,Bezeichnung) Values ('{MaschinenID}','{txtbx_BezeichnungMaschinen.Text}')");
-                dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
-                txtbx_BezeichnungMaschinen.Text = "";
-            }
-            else
-            {
-                btn_HinzufügenMaschinen_Click(sender, e);
+                    try
+                    {
+                        string MaschinenID = $"pl{random.Next(5, 200)}";
+                        bool result = db.QueryToBool($"select * from maschine where MaschinenID='{MaschinenID}'");
+                        if (!result)
+                        {
+                        byte[] data = db.imageToByte(Image.FromFile(openFileDialog1.FileName));
+                        MySqlParameter blob = new MySqlParameter("@Bild", MySqlDbType.MediumBlob, data.Length);
+                        blob.Value = data;
+
+                        db.ExecuteQueryImg($"Insert into maschine (MaschinenID,Bezeichnung,Bild) Values ('{MaschinenID}','{txtbx_BezeichnungMaschinen.Text}', @Bild)", blob);
+                            dgv_Maschinen.DataSource = db.QueryToDataTable("select MaschinenID, Bezeichnung from maschine where Aktiv='1'");
+                            txtbx_BezeichnungMaschinen.Text = "";
+                        }
+                        else
+                        {
+                            btn_HinzufügenMaschinen_Click(sender, e);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
             }
         }
 
