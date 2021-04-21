@@ -57,10 +57,12 @@ namespace WinProjektlabor
             this.btnLoeschenZuweisung = new System.Windows.Forms.Button();
             this.dgv_Zuweisung = new System.Windows.Forms.DataGridView();
             this.tp_USB = new System.Windows.Forms.TabPage();
+            this.pn_NoUSB = new System.Windows.Forms.Panel();
+            this.btn_HinzufügenUSB = new System.Windows.Forms.Button();
+            this.lbl_USBInfo = new System.Windows.Forms.Label();
             this.pn_YesUSB = new System.Windows.Forms.Panel();
             this.lbl_GehörtUSB = new System.Windows.Forms.Label();
             this.lbl_UserUSB = new System.Windows.Forms.Label();
-            this.btn_LoeschenUSB = new System.Windows.Forms.Button();
             this.lbl_StatusNachrichtUSB = new System.Windows.Forms.Label();
             this.lbl_StatusUSB = new System.Windows.Forms.Label();
             this.dgv_USB = new System.Windows.Forms.DataGridView();
@@ -84,6 +86,7 @@ namespace WinProjektlabor
             this.tb_Zuweisung.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Zuweisung)).BeginInit();
             this.tp_USB.SuspendLayout();
+            this.pn_NoUSB.SuspendLayout();
             this.pn_YesUSB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).BeginInit();
             this.tp_Maschinen.SuspendLayout();
@@ -162,7 +165,8 @@ namespace WinProjektlabor
             // 
             // btn_Memberadd
             // 
-            this.btn_Memberadd.Location = new System.Drawing.Point(672, 289);
+            this.btn_Memberadd.Location = new System.Drawing.Point(896, 356);
+            this.btn_Memberadd.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Memberadd.Name = "btn_Memberadd";
             this.btn_Memberadd.Size = new System.Drawing.Size(91, 20);
             this.btn_Memberadd.TabIndex = 25;
@@ -282,8 +286,8 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMember
             // 
-            this.btn_LöschenMember.Location = new System.Drawing.Point(13, 363);
-            this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_LöschenMember.Location = new System.Drawing.Point(17, 447);
+            this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(5);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
             this.btn_LöschenMember.Size = new System.Drawing.Size(638, 24);
             this.btn_LöschenMember.TabIndex = 2;
@@ -313,7 +317,8 @@ namespace WinProjektlabor
             this.tb_Zuweisung.Controls.Add(this.cmbx_Zuweisunguser);
             this.tb_Zuweisung.Controls.Add(this.btnLoeschenZuweisung);
             this.tb_Zuweisung.Controls.Add(this.dgv_Zuweisung);
-            this.tb_Zuweisung.Location = new System.Drawing.Point(4, 22);
+            this.tb_Zuweisung.Location = new System.Drawing.Point(4, 25);
+            this.tb_Zuweisung.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Zuweisung.Name = "tb_Zuweisung";
             this.tb_Zuweisung.Size = new System.Drawing.Size(789, 401);
             this.tb_Zuweisung.TabIndex = 4;
@@ -322,7 +327,8 @@ namespace WinProjektlabor
             // 
             // btn_Zuweisungneu
             // 
-            this.btn_Zuweisungneu.Location = new System.Drawing.Point(580, 119);
+            this.btn_Zuweisungneu.Location = new System.Drawing.Point(773, 146);
+            this.btn_Zuweisungneu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Zuweisungneu.Name = "btn_Zuweisungneu";
             this.btn_Zuweisungneu.Size = new System.Drawing.Size(149, 24);
             this.btn_Zuweisungneu.TabIndex = 9;
@@ -351,7 +357,8 @@ namespace WinProjektlabor
             // cmbx_Zuweisungmaschine
             // 
             this.cmbx_Zuweisungmaschine.FormattingEnabled = true;
-            this.cmbx_Zuweisungmaschine.Location = new System.Drawing.Point(580, 92);
+            this.cmbx_Zuweisungmaschine.Location = new System.Drawing.Point(773, 113);
+            this.cmbx_Zuweisungmaschine.Margin = new System.Windows.Forms.Padding(4);
             this.cmbx_Zuweisungmaschine.Name = "cmbx_Zuweisungmaschine";
             this.cmbx_Zuweisungmaschine.Size = new System.Drawing.Size(149, 21);
             this.cmbx_Zuweisungmaschine.TabIndex = 6;
@@ -359,14 +366,16 @@ namespace WinProjektlabor
             // cmbx_Zuweisunguser
             // 
             this.cmbx_Zuweisunguser.FormattingEnabled = true;
-            this.cmbx_Zuweisunguser.Location = new System.Drawing.Point(580, 39);
+            this.cmbx_Zuweisunguser.Location = new System.Drawing.Point(773, 48);
+            this.cmbx_Zuweisunguser.Margin = new System.Windows.Forms.Padding(4);
             this.cmbx_Zuweisunguser.Name = "cmbx_Zuweisunguser";
             this.cmbx_Zuweisunguser.Size = new System.Drawing.Size(149, 21);
             this.cmbx_Zuweisunguser.TabIndex = 5;
             // 
             // btnLoeschenZuweisung
             // 
-            this.btnLoeschenZuweisung.Location = new System.Drawing.Point(13, 344);
+            this.btnLoeschenZuweisung.Location = new System.Drawing.Point(17, 423);
+            this.btnLoeschenZuweisung.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoeschenZuweisung.Name = "btnLoeschenZuweisung";
             this.btnLoeschenZuweisung.Size = new System.Drawing.Size(496, 24);
             this.btnLoeschenZuweisung.TabIndex = 4;
@@ -389,6 +398,7 @@ namespace WinProjektlabor
             // 
             // tp_USB
             // 
+            this.tp_USB.Controls.Add(this.pn_NoUSB);
             this.tp_USB.Controls.Add(this.pn_YesUSB);
             this.tp_USB.Controls.Add(this.lbl_StatusNachrichtUSB);
             this.tp_USB.Controls.Add(this.lbl_StatusUSB);
@@ -402,13 +412,40 @@ namespace WinProjektlabor
             this.tp_USB.Text = "USB Sticks";
             this.tp_USB.UseVisualStyleBackColor = true;
             // 
+            // pn_NoUSB
+            // 
+            this.pn_NoUSB.Controls.Add(this.btn_HinzufügenUSB);
+            this.pn_NoUSB.Controls.Add(this.lbl_USBInfo);
+            this.pn_NoUSB.Location = new System.Drawing.Point(451, 97);
+            this.pn_NoUSB.Name = "pn_NoUSB";
+            this.pn_NoUSB.Size = new System.Drawing.Size(200, 100);
+            this.pn_NoUSB.TabIndex = 9;
+            this.pn_NoUSB.Visible = false;
+            // 
+            // btn_HinzufügenUSB
+            // 
+            this.btn_HinzufügenUSB.Location = new System.Drawing.Point(105, 67);
+            this.btn_HinzufügenUSB.Name = "btn_HinzufügenUSB";
+            this.btn_HinzufügenUSB.Size = new System.Drawing.Size(92, 30);
+            this.btn_HinzufügenUSB.TabIndex = 1;
+            this.btn_HinzufügenUSB.Text = "Hinzufügen";
+            this.btn_HinzufügenUSB.UseVisualStyleBackColor = true;
+            // 
+            // lbl_USBInfo
+            // 
+            this.lbl_USBInfo.AutoSize = true;
+            this.lbl_USBInfo.Location = new System.Drawing.Point(3, 0);
+            this.lbl_USBInfo.Name = "lbl_USBInfo";
+            this.lbl_USBInfo.Size = new System.Drawing.Size(186, 17);
+            this.lbl_USBInfo.TabIndex = 0;
+            this.lbl_USBInfo.Text = "Der USB Stick existiert nicht!";
+            // 
             // pn_YesUSB
             // 
             this.pn_YesUSB.Controls.Add(this.lbl_GehörtUSB);
             this.pn_YesUSB.Controls.Add(this.lbl_UserUSB);
-            this.pn_YesUSB.Controls.Add(this.btn_LoeschenUSB);
-            this.pn_YesUSB.Location = new System.Drawing.Point(338, 80);
-            this.pn_YesUSB.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pn_YesUSB.Location = new System.Drawing.Point(451, 97);
+            this.pn_YesUSB.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pn_YesUSB.Name = "pn_YesUSB";
             this.pn_YesUSB.Size = new System.Drawing.Size(200, 100);
             this.pn_YesUSB.TabIndex = 8;
@@ -577,19 +614,19 @@ namespace WinProjektlabor
             // 
             this.tp_Maschine.Controls.Add(this.pb_Maschine);
             this.tp_Maschine.Controls.Add(this.lbl_Maschine);
-            this.tp_Maschine.Location = new System.Drawing.Point(4, 22);
-            this.tp_Maschine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp_Maschine.Location = new System.Drawing.Point(4, 25);
+            this.tp_Maschine.Margin = new System.Windows.Forms.Padding(5);
             this.tp_Maschine.Name = "tp_Maschine";
-            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tp_Maschine.Size = new System.Drawing.Size(792, 424);
+            this.tp_Maschine.Padding = new System.Windows.Forms.Padding(5);
+            this.tp_Maschine.Size = new System.Drawing.Size(1059, 525);
             this.tp_Maschine.TabIndex = 0;
             this.tp_Maschine.Text = "Maschine";
             this.tp_Maschine.UseVisualStyleBackColor = true;
             // 
             // pb_Maschine
             // 
-            this.pb_Maschine.Location = new System.Drawing.Point(15, 36);
-            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb_Maschine.Location = new System.Drawing.Point(20, 44);
+            this.pb_Maschine.Margin = new System.Windows.Forms.Padding(5);
             this.pb_Maschine.Name = "pb_Maschine";
             this.pb_Maschine.Size = new System.Drawing.Size(150, 150);
             this.pb_Maschine.TabIndex = 1;
@@ -643,6 +680,8 @@ namespace WinProjektlabor
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Zuweisung)).EndInit();
             this.tp_USB.ResumeLayout(false);
             this.tp_USB.PerformLayout();
+            this.pn_NoUSB.ResumeLayout(false);
+            this.pn_NoUSB.PerformLayout();
             this.pn_YesUSB.ResumeLayout(false);
             this.pn_YesUSB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_USB)).EndInit();
@@ -680,7 +719,6 @@ namespace WinProjektlabor
         private System.Windows.Forms.Panel pn_YesUSB;
         private System.Windows.Forms.Label lbl_GehörtUSB;
         private System.Windows.Forms.Label lbl_UserUSB;
-        private System.Windows.Forms.Button btn_LoeschenUSB;
         private System.Windows.Forms.Button btn_HinzufügenMaschinen;
         private System.Windows.Forms.Label lbl_BezeichnungMaschinen;
         private System.Windows.Forms.TextBox txtbx_BezeichnungMaschinen;
@@ -709,5 +747,8 @@ namespace WinProjektlabor
         private System.Windows.Forms.TextBox tb_Vorname;
         private System.Windows.Forms.ComboBox cb_iButtonID;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel pn_NoUSB;
+        private System.Windows.Forms.Button btn_HinzufügenUSB;
+        private System.Windows.Forms.Label lbl_USBInfo;
     }
 }

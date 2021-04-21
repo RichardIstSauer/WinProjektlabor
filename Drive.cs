@@ -9,6 +9,8 @@ namespace WinProjektlabor
 {
     class Drive
     {
+
+
         public string Start(string drive)
         {
             string iButtonID = string.Empty;
@@ -28,6 +30,26 @@ namespace WinProjektlabor
             }
             // Wenn keine Config existiert return 0
             return "0";
+        }
+
+
+        private string RandomString(Int64 Length)
+        {
+            System.Random rnd = new System.Random();
+            StringBuilder Temp = new StringBuilder();
+            for (Int64 i = 0; i < Length; i++)
+            {
+                Temp.Append(Convert.ToChar(((byte)rnd.Next(254))).ToString());
+            }
+            return Temp.ToString();
+        }
+
+        public void New(string drive)
+        {
+            using (StreamWriter sw = new StreamWriter(drive + "\\config.txt")) 
+            {
+                sw.WriteLine(RandomString())
+            }
         }
     }
 }
