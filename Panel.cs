@@ -68,11 +68,18 @@ namespace WinProjektlabor
             this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = $"USB Stick {driveName} {driveLabel} wurde eingesteckt!"));
             this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Green));
 
+            bool ButtonIDexists = db.QueryToBool($"select * from ibutton where iButtonID = '{iButtonID}'");
             bool USBhaveUser = db.QueryToBool($"select * from user where iButtonID = '{iButtonID}' and Aktiv='1'");
             if (USBhaveUser)
             {
                 this.Invoke(new Action(() => pn_YesUSB.Visible = true));
+                string user = db.QueryToStringNew($"select Benutzername from user where iButtonID = '{iButtonID}' and Aktiv='1'");
+                this.Invoke(new Action(() =>  lbl_UserUSB.Text = $"User: {user}"));
 
+            }
+            if (!ButtonIDexists)
+            {
+                this.Invoke(new Action(() => pn_NoUSB.Visible = true));
             }
         }
 
@@ -86,6 +93,7 @@ namespace WinProjektlabor
             this.Invoke(new Action(() => lbl_StatusNachrichtUSB.Text = "Bitte USB Stick einstecken!"));
             this.Invoke(new Action(() => lbl_StatusNachrichtUSB.ForeColor = Color.Red));
             this.Invoke(new Action(() => pn_YesUSB.Visible = false));
+            this.Invoke(new Action(() => pn_NoUSB.Visible = false));
         }
 
 
