@@ -94,7 +94,7 @@ namespace WinProjektlabor
             this.btn_Anmelden.Location = new System.Drawing.Point(27, 277);
             this.btn_Anmelden.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Anmelden.Name = "btn_Anmelden";
-            this.btn_Anmelden.Size = new System.Drawing.Size(237, 26);
+            this.btn_Anmelden.Size = new System.Drawing.Size(237, 24);
             this.btn_Anmelden.TabIndex = 4;
             this.btn_Anmelden.Text = "Anmelden";
             this.btn_Anmelden.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@ namespace WinProjektlabor
             this.btn_Admin.Location = new System.Drawing.Point(265, 11);
             this.btn_Admin.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Admin.Name = "btn_Admin";
-            this.btn_Admin.Size = new System.Drawing.Size(20, 19);
+            this.btn_Admin.Size = new System.Drawing.Size(20, 20);
             this.btn_Admin.TabIndex = 5;
             this.btn_Admin.Text = "!";
             this.btn_Admin.UseVisualStyleBackColor = true;
