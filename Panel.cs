@@ -78,10 +78,7 @@ namespace WinProjektlabor
                 this.Invoke(new Action(() =>  lbl_UserUSB.Text = $"User: {user}"));
 
             }
-            else
-            {
-                this.Invoke(new Action(() => pn_USBNoUser.Visible = true));
-            }
+            
             if (!ButtonIDexists)
             {
                 this.Invoke(new Action(() => pn_NoUSB.Visible = true));
