@@ -169,7 +169,7 @@ namespace WinProjektlabor
             // 
             // btn_Memberadd
             // 
-            this.btn_Memberadd.Location = new System.Drawing.Point(896, 356);
+            this.btn_Memberadd.Location = new System.Drawing.Point(673, 269);
             this.btn_Memberadd.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Memberadd.Name = "btn_Memberadd";
             this.btn_Memberadd.Size = new System.Drawing.Size(91, 20);
@@ -290,7 +290,7 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMember
             // 
-            this.btn_LöschenMember.Location = new System.Drawing.Point(17, 447);
+            this.btn_LöschenMember.Location = new System.Drawing.Point(13, 353);
             this.btn_LöschenMember.Margin = new System.Windows.Forms.Padding(5);
             this.btn_LöschenMember.Name = "btn_LöschenMember";
             this.btn_LöschenMember.Size = new System.Drawing.Size(638, 24);
@@ -378,7 +378,7 @@ namespace WinProjektlabor
             // 
             // btnLoeschenZuweisung
             // 
-            this.btnLoeschenZuweisung.Location = new System.Drawing.Point(17, 423);
+            this.btnLoeschenZuweisung.Location = new System.Drawing.Point(13, 330);
             this.btnLoeschenZuweisung.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoeschenZuweisung.Name = "btnLoeschenZuweisung";
             this.btnLoeschenZuweisung.Size = new System.Drawing.Size(496, 24);
@@ -587,7 +587,7 @@ namespace WinProjektlabor
             // 
             // btn_LöschenMaschinen
             // 
-            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(13, 344);
+            this.btn_LöschenMaschinen.Location = new System.Drawing.Point(13, 337);
             this.btn_LöschenMaschinen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_LöschenMaschinen.Name = "btn_LöschenMaschinen";
             this.btn_LöschenMaschinen.Size = new System.Drawing.Size(273, 24);
